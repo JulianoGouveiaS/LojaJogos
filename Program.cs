@@ -17,135 +17,112 @@ namespace LojadeJogo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            /*-- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema LojaDeJogos
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema LojaDeJogos
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `LojaDeJogos` DEFAULT CHARACTER SET utf8 ;
-USE `LojaDeJogos` ;
-
--- -----------------------------------------------------
--- Table `LojaDeJogos`.`Plataformas`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `LojaDeJogos`.`Plataformas` ;
-
-CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Plataformas` (
-  `idPlataformas` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL,
-  PRIMARY KEY (`idPlataformas`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `LojaDeJogos`.`Jogos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `LojaDeJogos`.`Jogos` ;
-
-CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Jogos` (
-  `idJogos` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
-  `preco` DOUBLE NOT NULL,
-  `idPlataformas` INT NOT NULL,
-  PRIMARY KEY (`idJogos`),
-  INDEX `fk_Jogos_Plataformas1_idx` (`idPlataformas` ASC) VISIBLE,
-  CONSTRAINT `fk_Jogos_Plataformas1`
-    FOREIGN KEY (`idPlataformas`)
-    REFERENCES `LojaDeJogos`.`Plataformas` (`idPlataformas`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `LojaDeJogos`.`Clientes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `LojaDeJogos`.`Clientes` ;
-
-CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Clientes` (
-  `idClientes` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
-  `telefone` BIGINT(45) NOT NULL,
-  PRIMARY KEY (`idClientes`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `LojaDeJogos`.`Funcionarios`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `LojaDeJogos`.`Funcionarios` ;
-
-CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Funcionarios` (
-  `idFuncionarios` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
-  `salario` DOUBLE NOT NULL,
-  PRIMARY KEY (`idFuncionarios`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `LojaDeJogos`.`Vendas`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `LojaDeJogos`.`Vendas` ;
-
-CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Vendas` (
-  `idVendas` INT NOT NULL,
-  `descricao` VARCHAR(45) NOT NULL,
-  `valor` DOUBLE NULL,
-  `idClientes` INT NOT NULL,
-  `idJogos` INT NOT NULL,
-  `idFuncionarios` INT NOT NULL,
-  PRIMARY KEY (`idVendas`),
-  INDEX `fk_vendas_Clientes_idx` (`idClientes` ASC) VISIBLE,
-  INDEX `fk_vendas_jogos1_idx` (`idJogos` ASC) VISIBLE,
-  INDEX `fk_Vendas_Funcionarios1_idx` (`idFuncionarios` ASC) VISIBLE,
-  CONSTRAINT `fk_vendas_Clientes`
-    FOREIGN KEY (`idClientes`)
-    REFERENCES `LojaDeJogos`.`Clientes` (`idClientes`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_vendas_jogos1`
-    FOREIGN KEY (`idJogos`)
-    REFERENCES `LojaDeJogos`.`Jogos` (`idJogos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Vendas_Funcionarios1`
-    FOREIGN KEY (`idFuncionarios`)
-    REFERENCES `LojaDeJogos`.`Funcionarios` (`idFuncionarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `LojaDeJogos`.`Backup`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `LojaDeJogos`.`Backup` ;
-
-CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Backup` (
-  `idBackup` INT NOT NULL AUTO_INCREMENT,
-  `descricao` VARCHAR(45) NULL,
-  `valor` DOUBLE NULL,
-  `idClientes` INT(45) NULL,
-  `idJogos` INT(45) NULL,
-  `idFuncionarios` INT(45) NULL,
-  PRIMARY KEY (`idBackup`))
-ENGINE = InnoDB;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
- */
+           
         }
+
+
+        //Crud exemplos
+        /*
+         private ConnectionFactory connection = new ConnectionFactory();
+          public void Salvar(AdministradorDomain administrador)
+          {
+              try
+              {
+                  connection.Conectar();
+                  // connectbd();
+                  MySqlCommand cmd = new MySqlCommand();
+                  cmd.Connection = connection.getConnection();
+                  cmd.CommandText = "INSERT INTO administrador(nome) VALUES(?nome)";
+                  cmd.Parameters.Add("?nome", MySqlDbType.VarChar).Value = administrador.getNome();
+                  cmd.ExecuteNonQuery();
+                  MessageBox.Show("Conexao efetuada com sucesso");
+
+              } catch(MySqlException ex)
+              {
+                  MessageBox.Show("Nao deu certo a conexao!!");
+              }
+              finally
+              {
+                  connection.Close();
+              }
+          }
+
+
+
+          public void Excluir(int id)
+          {
+              connection.Conectar();
+              MySqlCommand cmd = new MySqlCommand();
+              cmd.Connection = connection.getConnection();
+              //cmd.CommandText = "DELETE from administrador WHERE id_administrados" +
+              //    " = ?id_administrados";
+              cmd.CommandText = "DELETE from administrador WHERE id_administrados" +
+                 " = ?id_administrados";
+              cmd.Parameters.Add("?id_administrados", MySqlDbType.Int32).Value = id;
+              //cmd.Parameters.Add("?Administrador_id_administrados", MySqlDbType.Int32).Value = id;
+              MySqlDataReader leitor = cmd.ExecuteReader();
+              leitor.Read();
+
+
+              
+             // cmd.CommandText = "DELETE from administrador, funcionario_has_administrador WHERE id_administrados" +
+               //  " = ?id_administrados and administrador_id_administrados = ?Administrador_id_administrados";
+               
+
+
     }
+
+    public MySqlDataReader Select()
+    {
+        AdministradorDomain admDomain = new AdministradorDomain();
+        connection.Conectar();
+        MySqlCommand cmd = new MySqlCommand();
+        cmd.Connection = connection.getConnection();
+        cmd.CommandText = "SELECT * from administrador";
+
+        MySqlDataReader leitor = cmd.ExecuteReader();
+
+
+
+
+        //admDomain.setId(int.Parse(leitorMySQL["id_administrados"].ToString()));
+        //admDomain.setNome(leitorMySQL["nome"].ToString());
+
+        return leitor;
+
+    }
+    public void PreencherComboBoxAdm(ComboBox comboBoxAdm)
+    {
+        DataTable tabelaAdministrador = new DataTable();
+        // AdministradorDomain admDomain = new AdministradorDomain();
+        AdministradorDAO admDAO = new AdministradorDAO();
+        MySqlDataReader leitor = admDAO.Select();
+
+        tabelaAdministrador.Load(leitor);
+
+        comboBoxAdm.ValueMember = "id_administrados";
+        comboBoxAdm.DisplayMember = "nome";
+        comboBoxAdm.DataSource = tabelaAdministrador;
+
+    }
+
+    public void Editar(AdministradorDomain admDomain)
+    {
+        connection.Conectar();
+        MySqlCommand cmd = new MySqlCommand();
+        cmd.Connection = connection.getConnection();
+        cmd.CommandText = "UPDATE administrador SET nome = ?nome WHERE id_administrados = ?id_administrados";
+        cmd.Parameters.Add("?nome", MySqlDbType.String).Value = admDomain.getNome();
+        cmd.Parameters.Add("?id_administrados", MySqlDbType.Int32).Value = admDomain.getId();
+        cmd.ExecuteNonQuery();
+        // MySqlDataReader leitor = cmd.ExecuteReader();
+        // leitor.Read();
+
+    }
+       */
+
+
+    }
+
+
 }
