@@ -17,7 +17,7 @@ namespace LojadeJogo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            /* -- MySQL Workbench Forward Engineering
+            /*-- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -79,18 +79,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `LojaDeJogos`.`Filiais`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `LojaDeJogos`.`Filiais` ;
-
-CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Filiais` (
-  `idFiliais` INT NOT NULL AUTO_INCREMENT,
-  `cidade` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idFiliais`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `LojaDeJogos`.`Funcionarios`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `LojaDeJogos`.`Funcionarios` ;
@@ -98,15 +86,8 @@ DROP TABLE IF EXISTS `LojaDeJogos`.`Funcionarios` ;
 CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Funcionarios` (
   `idFuncionarios` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
-  `salario` DOUBLE NULL,
-  `idFiliais` INT NOT NULL,
-  PRIMARY KEY (`idFuncionarios`),
-  INDEX `fk_Funcionarios_Filiais1_idx` (`idFiliais` ASC) VISIBLE,
-  CONSTRAINT `fk_Funcionarios_Filiais1`
-    FOREIGN KEY (`idFiliais`)
-    REFERENCES `LojaDeJogos`.`Filiais` (`idFiliais`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `salario` DOUBLE NOT NULL,
+  PRIMARY KEY (`idFuncionarios`))
 ENGINE = InnoDB;
 
 
@@ -144,9 +125,26 @@ CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Vendas` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `LojaDeJogos`.`Backup`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `LojaDeJogos`.`Backup` ;
+
+CREATE TABLE IF NOT EXISTS `LojaDeJogos`.`Backup` (
+  `idBackup` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(45) NULL,
+  `valor` DOUBLE NULL,
+  `idClientes` INT(45) NULL,
+  `idJogos` INT(45) NULL,
+  `idFuncionarios` INT(45) NULL,
+  PRIMARY KEY (`idBackup`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
  */
         }
     }
