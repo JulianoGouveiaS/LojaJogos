@@ -22,7 +22,6 @@ namespace LojadeJogo
 
                 //Conexao Juliano
                 connection = new MySqlConnection("datasource=127.0.0.1;port=3306;database=lojadejogos;username=root;password=admin");
-                connection.Open();
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -32,6 +31,7 @@ namespace LojadeJogo
         //Pegar conexao com banco de dados
         public MySqlConnection getConnection()
         {
+            connection.Open();
             return connection;
         }
 

@@ -50,28 +50,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CadPlataforma.cs">
+    <Compile Include="Forms\Plataformas\CadPlataforma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadPlataforma.Designer.cs">
+    <Compile Include="Forms\Plataformas\CadPlataforma.Designer.cs">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConnectionFactory.cs" />
+    <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
     <Compile Include="Domain\Plataforma.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Main\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Main\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Plataformas\ExcPlataforma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Plataformas\ExcPlataforma.Designer.cs">
+      <DependentUpon>ExcPlataforma.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CadPlataforma.resx">
+    <Compile Include="Utils\Utilitarios.cs" />
+    <EmbeddedResource Include="Forms\Plataformas\CadPlataforma.resx">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Main\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Plataformas\ExcPlataforma.resx">
+      <DependentUpon>ExcPlataforma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojadeJogo.Forms.Plataformas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,13 @@ namespace LojadeJogo
         private void plataformasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CadPlataforma form1 = new CadPlataforma();
+            form1.MdiParent = this;
+            form1.Show();
+        }
+
+        private void plataformasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ExcPlataforma form1 = new ExcPlataforma();
             form1.MdiParent = this;
             form1.Show();
         }
