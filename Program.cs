@@ -20,6 +20,18 @@ namespace LojadeJogo
            
         }
 
+        //Trigger 
+        /* 
+         delimiter #
+
+create trigger tr_backup after insert on vendas
+for each row
+begin
+  insert into backup (descricao, valor, idClientes, idJogos, idFuncionarios) values (new.descricao, new.valor, new.idClientes, new.idJogos, new.idFuncionarios);
+end#
+
+delimiter ; 
+         */
 
         //Crud exemplos
         /*
