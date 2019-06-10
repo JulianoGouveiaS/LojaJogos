@@ -11,12 +11,12 @@ namespace LojadeJogo.DAO.Plataformas
 {
     public class DaoPlataformas
     {
+        ConnectionFactory connection = new ConnectionFactory();
+
 
         public void salvar(Plataforma plataforma)
         {
 
-            ConnectionFactory connection = new ConnectionFactory();
-           
             try
             {
                  connection.Conectar();
@@ -40,5 +40,21 @@ namespace LojadeJogo.DAO.Plataformas
                 connection.Close();
             }
         }
+
+        public void Excluir(int id)
+        {
+            connection.Conectar();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection.getConnection();
+            cmd.CommandText = "DELETE from plataformas WHERE idPlataformas = ?id";
+            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
+            MySqlDataReader leitor = cmd.ExecuteReader();
+            leitor.Read();
+   
+        }
+
+
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using LojadeJogo.Utils;
+﻿using LojadeJogo.DAO.Plataformas;
+using LojadeJogo.Utils;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,10 @@ namespace LojadeJogo.Forms.Plataformas
 {
     public partial class ExcPlataforma : Form
     {
+        Utilitarios utils = new Utilitarios();
         public ExcPlataforma()
         {
             InitializeComponent();
-            Utilitarios utils = new Utilitarios();
             utils.preencherCombo(cmbPlat, this.GetPlataformas(), "idPlataformas", "nome");
         }
 
@@ -41,6 +42,10 @@ namespace LojadeJogo.Forms.Plataformas
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            int idEscolhido = int.Parse(cmbPlat.SelectedValue.ToString());
+            DaoPlataformas dao = new DaoPlataformas();
+            dao.Excluir(idEscolhido);
+            utils.preencherCombo(cmbPlat, this.GetPlataformas(), "idPlataformas", "nome");
 
         }
     }
