@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LojadeJogo.Domain
 {
-    public class Jogo
+    class Jogo
     {
-        public string nome { get; set; }
+        public String nome { get; set; }
         public double preco { get; set; }
         public int idPlataforma { get; set; }
     }

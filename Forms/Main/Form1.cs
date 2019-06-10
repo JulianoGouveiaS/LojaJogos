@@ -31,5 +31,13 @@ namespace LojadeJogo
             form1.MdiParent = this;
             form1.Show();
         }
+
+        private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadFuncionarios func = new CadFuncionarios();
+            func.MdiParent = this;
+            func.Show();
+
+        }
     }
 }

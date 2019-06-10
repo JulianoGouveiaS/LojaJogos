@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadFuncionarios));
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Nome = new System.Windows.Forms.TextBox();
             this.txt_Salario = new System.Windows.Forms.TextBox();
@@ -37,59 +38,42 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 22);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome: ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txt_Nome
             // 
-            this.txt_Nome.Location = new System.Drawing.Point(68, 19);
+            resources.ApplyResources(this.txt_Nome, "txt_Nome");
             this.txt_Nome.Name = "txt_Nome";
-            this.txt_Nome.Size = new System.Drawing.Size(353, 20);
-            this.txt_Nome.TabIndex = 1;
             // 
             // txt_Salario
             // 
-            this.txt_Salario.Location = new System.Drawing.Point(68, 77);
+            resources.ApplyResources(this.txt_Salario, "txt_Salario");
             this.txt_Salario.Name = "txt_Salario";
-            this.txt_Salario.Size = new System.Drawing.Size(353, 20);
-            this.txt_Salario.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 80);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Salário: ";
             // 
             // bttn_Adicionar
             // 
-            this.bttn_Adicionar.Location = new System.Drawing.Point(463, 70);
+            resources.ApplyResources(this.bttn_Adicionar, "bttn_Adicionar");
             this.bttn_Adicionar.Name = "bttn_Adicionar";
-            this.bttn_Adicionar.Size = new System.Drawing.Size(75, 23);
-            this.bttn_Adicionar.TabIndex = 4;
-            this.bttn_Adicionar.Text = "Adicionar";
             this.bttn_Adicionar.UseVisualStyleBackColor = true;
             this.bttn_Adicionar.Click += new System.EventHandler(this.bttn_Adicionar_Click);
             // 
             // CadFuncionarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 118);
             this.Controls.Add(this.bttn_Adicionar);
             this.Controls.Add(this.txt_Salario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label1);
             this.Name = "CadFuncionarios";
-            this.Text = "CadFuncionarios";
             this.ResumeLayout(false);
             this.PerformLayout();
 

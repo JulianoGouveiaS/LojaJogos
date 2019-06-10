@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.plataformasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plataformasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,10 +55,33 @@
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.plataformasToolStripMenuItem});
+            this.plataformasToolStripMenuItem,
+            this.funcionariosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            // 
+            // plataformasToolStripMenuItem
+            // 
+            this.plataformasToolStripMenuItem.Name = "plataformasToolStripMenuItem";
+            this.plataformasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.plataformasToolStripMenuItem.Text = "Plataformas";
+            this.plataformasToolStripMenuItem.Click += new System.EventHandler(this.plataformasToolStripMenuItem_Click);
+            // 
+            // remoçõesToolStripMenuItem
+            // 
+            this.remoçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plataformasToolStripMenuItem1});
+            this.remoçõesToolStripMenuItem.Name = "remoçõesToolStripMenuItem";
+            this.remoçõesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.remoçõesToolStripMenuItem.Text = "Remoções";
+            // 
+            // plataformasToolStripMenuItem1
+            // 
+            this.plataformasToolStripMenuItem1.Name = "plataformasToolStripMenuItem1";
+            this.plataformasToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.plataformasToolStripMenuItem1.Text = "Plataformas";
+            this.plataformasToolStripMenuItem1.Click += new System.EventHandler(this.plataformasToolStripMenuItem1_Click);
             // 
             // toolStrip1
             // 
@@ -78,27 +102,12 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // plataformasToolStripMenuItem
+            // funcionariosToolStripMenuItem
             // 
-            this.plataformasToolStripMenuItem.Name = "plataformasToolStripMenuItem";
-            this.plataformasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.plataformasToolStripMenuItem.Text = "Plataformas";
-            this.plataformasToolStripMenuItem.Click += new System.EventHandler(this.plataformasToolStripMenuItem_Click);
-            // 
-            // remoçõesToolStripMenuItem
-            // 
-            this.remoçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.plataformasToolStripMenuItem1});
-            this.remoçõesToolStripMenuItem.Name = "remoçõesToolStripMenuItem";
-            this.remoçõesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.remoçõesToolStripMenuItem.Text = "Remoções";
-            // 
-            // plataformasToolStripMenuItem1
-            // 
-            this.plataformasToolStripMenuItem1.Name = "plataformasToolStripMenuItem1";
-            this.plataformasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.plataformasToolStripMenuItem1.Text = "Plataformas";
-            this.plataformasToolStripMenuItem1.Click += new System.EventHandler(this.plataformasToolStripMenuItem1_Click);
+            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionariosToolStripMenuItem.Text = "Funcionarios";
+            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -129,6 +138,7 @@
         private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
     }
 }
 
