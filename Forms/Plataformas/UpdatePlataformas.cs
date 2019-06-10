@@ -39,5 +39,17 @@ namespace LojadeJogo.Forms.Plataformas
             txtId.Enabled = true;
             txtNome.Enabled = true;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Plataforma plataformaEditada = new Plataforma();
+            plataformaEditada.id = int.Parse(txtId.Text);
+            plataformaEditada.Nome = txtNome.Text;
+            dao.Editar(plataformaEditada);
+
+            txtId.Enabled = false;
+            txtNome.Enabled = false;
+            utils.preencherCombo(cmbPlataformas, dao.lista(), "idPlataformas", "nome");
+        }
     }
 }

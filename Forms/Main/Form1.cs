@@ -46,5 +46,12 @@ namespace LojadeJogo
             func.Show();
 
         }
+
+        private void plataformasToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            ListaPlataformas func = new ListaPlataformas();
+            func.MdiParent = this;
+            func.Show();
+        }
     }
 }
