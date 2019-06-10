@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace LojadeJogo
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipal : Form
     {
-        public Form1()
+        public FormPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void plataformasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadPlataforma form1 = new CadPlataforma();
+            form1.MdiParent = this;
+            form1.Show();
         }
     }
 }
