@@ -56,6 +56,12 @@
     <Compile Include="Forms\Plataformas\CadPlataforma.Designer.cs">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Plataformas\UpdatePlataformas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Plataformas\UpdatePlataformas.Designer.cs">
+      <DependentUpon>UpdatePlataformas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
     <Compile Include="Domain\Plataforma.cs" />
@@ -82,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Plataformas\ExcPlataforma.resx">
       <DependentUpon>ExcPlataforma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Plataformas\UpdatePlataformas.resx">
+      <DependentUpon>UpdatePlataformas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -97,7 +97,7 @@ namespace LojadeJogo.DAO.Plataformas
             reader.Close();
             connection.Close();
             return plataformaEncontrada;
-
+   
         }
 
     }

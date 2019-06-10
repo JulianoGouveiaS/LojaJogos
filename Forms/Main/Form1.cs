@@ -31,5 +31,12 @@ namespace LojadeJogo
             form1.MdiParent = this;
             form1.Show();
         }
+
+        private void plataformasToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            UpdatePlataformas form1 = new UpdatePlataformas();
+            form1.MdiParent = this;
+            form1.Show();
+        }
     }
 }
