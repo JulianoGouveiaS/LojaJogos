@@ -94,8 +94,7 @@ delimiter ;
 
         MySqlDataReader leitor = cmd.ExecuteReader();
 
-
-
+        
 
         //admDomain.setId(int.Parse(leitorMySQL["id_administrados"].ToString()));
         //admDomain.setNome(leitorMySQL["nome"].ToString());

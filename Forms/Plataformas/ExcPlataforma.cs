@@ -1,4 +1,5 @@
-﻿using LojadeJogo.Utils;
+﻿using LojadeJogo.DAO.Plataformas;
+using LojadeJogo.Utils;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace LojadeJogo.Forms.Plataformas
 {
     public partial class ExcPlataforma : Form
     {
+        Utilitarios utils = new Utilitarios();
+        DaoPlataformas dao = new DaoPlataformas();
+
         public ExcPlataforma()
         {
             InitializeComponent();
-            Utilitarios utils = new Utilitarios();
-            utils.preencherCombo(cmbPlat, this.GetPlataformas(), "idPlataformas", "nome");
+            utils.preencherCombo(cmbPlat, dao.lista(), "idPlataformas", "nome");
         }
 
         private void cmbPlat_SelectedIndexChanged(object sender, EventArgs e)
@@ -26,21 +29,13 @@ namespace LojadeJogo.Forms.Plataformas
 
         }
 
-        public DataTable GetPlataformas()
-        {
-            ConnectionFactory connection = new ConnectionFactory();
-            connection.Conectar();
-            MySqlCommand cmd = new MySqlCommand();
-
-            DataTable data = new DataTable("plataformas");
-            cmd.Connection = connection.getConnection();
-            cmd.CommandText = "SELECT idPlataformas, nome FROM plataformas ORDER BY idPlataformas";
-            data.Load(cmd.ExecuteReader());
-            return data;
-        }
+     
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            int idEscolhido = int.Parse(cmbPlat.SelectedValue.ToString());
+            dao.Excluir(idEscolhido);
+            utils.preencherCombo(cmbPlat, dao.lista(), "idPlataformas", "nome");
 
         }
     }
