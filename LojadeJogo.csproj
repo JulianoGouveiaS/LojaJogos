@@ -50,6 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Jogo.cs" />
+    <Compile Include="Forms\Funcionarios\CadFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Funcionarios\CadFuncionarios.Designer.cs">
+      <DependentUpon>CadFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\Funcionarios\DAOFuncionarios.cs" />
     <Compile Include="Forms\Plataformas\CadPlataforma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +70,7 @@
     <Compile Include="Forms\Plataformas\UpdatePlataformas.Designer.cs">
       <DependentUpon>UpdatePlataformas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Domain\Funcionarios.cs" />
     <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
     <Compile Include="Domain\Plataforma.cs" />
@@ -80,6 +89,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Utilitarios.cs" />
+    <EmbeddedResource Include="Forms\Funcionarios\CadFuncionarios.resx">
+      <DependentUpon>CadFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Plataformas\CadPlataforma.resx">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +126,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DAO\Jogos\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

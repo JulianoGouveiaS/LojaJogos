@@ -38,6 +38,9 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.atualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plataformasToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +60,8 @@
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.plataformasToolStripMenuItem});
+            this.plataformasToolStripMenuItem,
+            this.funcionariosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -66,6 +70,28 @@
             // 
             this.plataformasToolStripMenuItem.Name = "plataformasToolStripMenuItem";
             this.plataformasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.plataformasToolStripMenuItem.Text = "Plataformas";
+            this.plataformasToolStripMenuItem.Click += new System.EventHandler(this.plataformasToolStripMenuItem_Click);
+            // 
+            // remoçõesToolStripMenuItem
+            // 
+            this.remoçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plataformasToolStripMenuItem1});
+            this.remoçõesToolStripMenuItem.Name = "remoçõesToolStripMenuItem";
+            this.remoçõesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.remoçõesToolStripMenuItem.Text = "Remoções";
+            // 
+            // plataformasToolStripMenuItem1
+            // 
+            this.plataformasToolStripMenuItem1.Name = "plataformasToolStripMenuItem1";
+            this.plataformasToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.plataformasToolStripMenuItem1.Text = "Plataformas";
+            this.plataformasToolStripMenuItem1.Click += new System.EventHandler(this.plataformasToolStripMenuItem1_Click);
+            // 
+            // plataformasToolStripMenuItem
+            // 
+            this.plataformasToolStripMenuItem.Name = "plataformasToolStripMenuItem";
+            this.plataformasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.plataformasToolStripMenuItem.Text = "Plataformas";
             this.plataformasToolStripMenuItem.Click += new System.EventHandler(this.plataformasToolStripMenuItem_Click);
             // 
@@ -104,6 +130,7 @@
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // atualizarToolStripMenuItem
+            // funcionariosToolStripMenuItem
             // 
             this.atualizarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plataformasToolStripMenuItem2});
@@ -112,6 +139,10 @@
             this.atualizarToolStripMenuItem.Text = "Atualizar";
             // 
             // plataformasToolStripMenuItem2
+            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionariosToolStripMenuItem.Text = "Funcionarios";
+            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
             // 
             this.plataformasToolStripMenuItem2.Name = "plataformasToolStripMenuItem2";
             this.plataformasToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
@@ -149,6 +180,7 @@
         private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem atualizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
     }
 }
 
