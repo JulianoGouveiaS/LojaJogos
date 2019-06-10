@@ -8,7 +8,7 @@ namespace LojadeJogo
 {
     class Funcionarios
     {
-        private int salario;
+        private double salario;
         private string nome;
 
         public string Nome {
@@ -16,7 +16,7 @@ namespace LojadeJogo
             set { nome = value; }
         }
 
-        public int Salario {
+        public double Salario {
             get { return salario; }
             set { salario = value; }
         }
