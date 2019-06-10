@@ -50,12 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadFuncionarios.Designer.cs">
+      <DependentUpon>CadFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAOFuncionarios.cs" />
     <Compile Include="Forms\Plataformas\CadPlataforma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Plataformas\CadPlataforma.Designer.cs">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcionarios.cs" />
     <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
     <Compile Include="Domain\Plataforma.cs" />
@@ -74,6 +82,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Utilitarios.cs" />
+    <EmbeddedResource Include="CadFuncionarios.resx">
+      <DependentUpon>CadFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Plataformas\CadPlataforma.resx">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
     </EmbeddedResource>
