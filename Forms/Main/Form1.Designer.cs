@@ -32,11 +32,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plataformasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plataformasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.atualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plataformasToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plataformasToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +49,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
-            this.remoçõesToolStripMenuItem});
+            this.remoçõesToolStripMenuItem,
+            this.atualizarToolStripMenuItem,
+            this.listarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -64,9 +70,16 @@
             // plataformasToolStripMenuItem
             // 
             this.plataformasToolStripMenuItem.Name = "plataformasToolStripMenuItem";
-            this.plataformasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.plataformasToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.plataformasToolStripMenuItem.Text = "Plataformas";
             this.plataformasToolStripMenuItem.Click += new System.EventHandler(this.plataformasToolStripMenuItem_Click);
+            // 
+            // funcionariosToolStripMenuItem
+            // 
+            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.funcionariosToolStripMenuItem.Text = "Funcionarios";
+            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
             // 
             // remoçõesToolStripMenuItem
             // 
@@ -79,9 +92,24 @@
             // plataformasToolStripMenuItem1
             // 
             this.plataformasToolStripMenuItem1.Name = "plataformasToolStripMenuItem1";
-            this.plataformasToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.plataformasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.plataformasToolStripMenuItem1.Text = "Plataformas";
             this.plataformasToolStripMenuItem1.Click += new System.EventHandler(this.plataformasToolStripMenuItem1_Click);
+            // 
+            // atualizarToolStripMenuItem
+            // 
+            this.atualizarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plataformasToolStripMenuItem2});
+            this.atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
+            this.atualizarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.atualizarToolStripMenuItem.Text = "Atualizar";
+            // 
+            // plataformasToolStripMenuItem2
+            // 
+            this.plataformasToolStripMenuItem2.Name = "plataformasToolStripMenuItem2";
+            this.plataformasToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.plataformasToolStripMenuItem2.Text = "Plataformas";
+            this.plataformasToolStripMenuItem2.Click += new System.EventHandler(this.plataformasToolStripMenuItem2_Click);
             // 
             // toolStrip1
             // 
@@ -102,12 +130,20 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // funcionariosToolStripMenuItem
+            // listarToolStripMenuItem
             // 
-            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.funcionariosToolStripMenuItem.Text = "Funcionarios";
-            this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
+            this.listarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plataformasToolStripMenuItem3});
+            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.listarToolStripMenuItem.Text = "Listar";
+            // 
+            // plataformasToolStripMenuItem3
+            // 
+            this.plataformasToolStripMenuItem3.Name = "plataformasToolStripMenuItem3";
+            this.plataformasToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.plataformasToolStripMenuItem3.Text = "Plataformas";
+            this.plataformasToolStripMenuItem3.Click += new System.EventHandler(this.plataformasToolStripMenuItem3_Click);
             // 
             // FormPrincipal
             // 
@@ -138,7 +174,11 @@
         private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem atualizarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem3;
     }
 }
 

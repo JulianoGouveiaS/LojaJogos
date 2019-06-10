@@ -65,6 +65,18 @@
     <Compile Include="Forms\Plataformas\CadPlataforma.Designer.cs">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Plataformas\ListaPlataformas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Plataformas\ListaPlataformas.Designer.cs">
+      <DependentUpon>ListaPlataformas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Plataformas\UpdatePlataformas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Plataformas\UpdatePlataformas.Designer.cs">
+      <DependentUpon>UpdatePlataformas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Funcionarios.cs" />
     <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
@@ -95,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Plataformas\ExcPlataforma.resx">
       <DependentUpon>ExcPlataforma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Plataformas\ListaPlataformas.resx">
+      <DependentUpon>ListaPlataformas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Plataformas\UpdatePlataformas.resx">
+      <DependentUpon>UpdatePlataformas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
