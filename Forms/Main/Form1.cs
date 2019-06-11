@@ -53,5 +53,10 @@ namespace LojadeJogo
             func.MdiParent = this;
             func.Show();
         }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

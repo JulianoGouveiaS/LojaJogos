@@ -12,7 +12,6 @@ namespace LojadeJogo
     {
         public void salvar(Funcionarios funcionarios)
         {
-
             ConnectionFactory connection = new ConnectionFactory();
 
             try
