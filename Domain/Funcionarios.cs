@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LojadeJogo
 {
-    class Funcionarios
+    class Funcionario
     {
+        public int id;
         private double salario;
         private string nome;
 
