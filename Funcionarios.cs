@@ -8,6 +8,7 @@ namespace LojadeJogo
 {
     class Funcionarios
     {
+        public int id;
         private int salario;
         private string nome;
 
