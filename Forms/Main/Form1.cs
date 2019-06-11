@@ -89,5 +89,27 @@ namespace LojadeJogo
             form.MdiParent = this;
             form.Show();
         }
+
+        private void funcionariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            ExcFuncionario form = new ExcFuncionario();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void funcionariosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            UpdateFuncionarios form = new UpdateFuncionarios();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void funcionariosToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            ListaFuncionarios form = new ListaFuncionarios();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

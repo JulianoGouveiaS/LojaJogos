@@ -23,7 +23,7 @@ namespace LojadeJogo
             {
                 InitializeComponent();
 
-            utils.preencherCombo(cmb_Funcionarios, dao.lista(), "idFuncionarios", "nome");
+                 utils.preencherCombo(cmb_Funcionarios, dao.lista(), "idFuncionarios", "nome");
         }
         
 
@@ -31,7 +31,8 @@ namespace LojadeJogo
         {
             int idEscolhido = int.Parse(cmb_Funcionarios.SelectedValue.ToString());
             dao.Excluir(idEscolhido);
-            utils.preencherCombo(cmb_Funcionarios, dao.lista(), "idFuncionario", "nome");
+            
+            utils.preencherCombo(cmb_Funcionarios, dao.lista(), "idFuncionarios", "nome");
         }
     }
 }

@@ -59,7 +59,7 @@ namespace LojadeJogo
                 connection.Conectar();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection.getConnection();
-                cmd.CommandText = "UPDATE funcionarios SET nome, salario = ?nome, ?salario WHERE idFuncionarios = ?id";
+                cmd.CommandText = "UPDATE funcionarios SET nome = ?nome, salario = ?salario WHERE idFuncionarios = ?id";
                 cmd.Parameters.Add("?nome", MySqlDbType.String).Value = funcionarios.Nome;
                 cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = funcionarios.id;
                 cmd.Parameters.Add("?salario", MySqlDbType.Double).Value = funcionarios.Salario;
