@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\Jogos\DAOJogos.cs" />
     <Compile Include="Domain\Jogo.cs" />
     <Compile Include="Forms\Funcionarios\CadFuncionarios.cs">
       <SubType>Form</SubType>
@@ -136,7 +137,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAO\Jogos\" />
+    <Folder Include="Forms\Jogo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
