@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,12 @@ namespace LojadeJogo
 {
     class DAOFuncionarios
     {
-        public void salvar(Funcionarios funcionarios)
-        {
-            ConnectionFactory connection = new ConnectionFactory();
+        ConnectionFactory connection = new ConnectionFactory();
 
-            
+        public void salvar(Funcionario funcionarios)
+        {
+
+
             try
             {
                 connection.Conectar();
@@ -38,6 +40,7 @@ namespace LojadeJogo
             {
                 connection.Close();
             }
+        }
 
             public void Excluir(int id)
             {
@@ -51,16 +54,15 @@ namespace LojadeJogo
 
             }
 
-            public void Editar(Funcionarios funcionarios)
+            public void Editar(Funcionario funcionarios)
             {
                 connection.Conectar();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection.getConnection();
-                cmd.CommandText = "UPDATE funcionarios SET nome = ?nome WHERE idFuncionarios = ?id";
+                cmd.CommandText = "UPDATE funcionarios SET nome, salario = ?nome, ?salario WHERE idFuncionarios = ?id";
                 cmd.Parameters.Add("?nome", MySqlDbType.String).Value = funcionarios.Nome;
                 cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = funcionarios.id;
-                cmd.CommandText = "UPDATE funcionarios SET salario = ?salario WHERE idFuncionarios = ?id";
-                cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = funcionarios.Salario;
+                cmd.Parameters.Add("?salario", MySqlDbType.Double).Value = funcionarios.Salario;
                 cmd.ExecuteNonQuery();
 
             }
@@ -73,7 +75,7 @@ namespace LojadeJogo
 
                 DataTable data = new DataTable("funcionarios");
                 cmd.Connection = connection.getConnection();
-                cmd.CommandText = "SELECT idFuncionarios, nome FROM funcionarios ORDER BY idFuncionarios";
+                cmd.CommandText = "SELECT idFuncionarios, nome, salario FROM funcionarios ORDER BY idFuncionarios";
                 data.Load(cmd.ExecuteReader());
                 return data;
             }
@@ -86,13 +88,13 @@ namespace LojadeJogo
                 cmd.CommandText = "SELECT * FROM funcionarios WHERE idFuncionarios = ?id";
                 cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
                 MySqlDataReader reader = cmd.ExecuteReader();
-                Funcionarios funcionarioEncontrado = new Funcionarios();
+                Funcionario funcionarioEncontrado = new Funcionario();
 
                 while (reader.Read())
                 {
-                    funcionarioEncontrado.id = int.Parse(reader["idPlataformas"].ToString());
+                    funcionarioEncontrado.id = int.Parse(reader["idFuncionarios"].ToString());
                     funcionarioEncontrado.Nome = reader["nome"].ToString();
-                    funcionarioEncontrado.Salario = int.Parse(reader["salario"].ToString());
+                    funcionarioEncontrado.Salario = Convert.ToDouble(reader["salario"].ToString());
                 }
 
                 reader.Close();
@@ -101,8 +103,8 @@ namespace LojadeJogo
 
             }
 
-        }
-
-
     }
+
 }
+
+

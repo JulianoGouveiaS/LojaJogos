@@ -52,6 +52,12 @@
   <ItemGroup>
     <Compile Include="DAO\Jogos\DAOJogos.cs" />
     <Compile Include="Domain\Jogo.cs" />
+    <Compile Include="Forms\Funcionarios\ExcFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Funcionarios\ExcFuncionario.Designer.cs">
+      <DependentUpon>ExcFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Funcionarios\CadFuncionarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,18 @@
       <DependentUpon>UpdatePlataformas.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Funcionarios.cs" />
+    <Compile Include="Forms\Funcionarios\ListaFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Funcionarios\ListaFuncionarios.Designer.cs">
+      <DependentUpon>ListaFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Funcionarios\UpdateFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Funcionarios\UpdateFuncionarios.Designer.cs">
+      <DependentUpon>UpdateFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
     <Compile Include="Domain\Plataforma.cs" />
@@ -96,11 +114,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Utilitarios.cs" />
+    <EmbeddedResource Include="Forms\Funcionarios\ExcFuncionario.resx">
+      <DependentUpon>ExcFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Funcionarios\CadFuncionarios.resx">
       <DependentUpon>CadFuncionarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExcFuncionarios.resx">
-      <DependentUpon>ExcFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Plataformas\CadPlataforma.resx">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
@@ -117,6 +135,9 @@
     <EmbeddedResource Include="Forms\Plataformas\UpdatePlataformas.resx">
       <DependentUpon>UpdatePlataformas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Funcionarios\ListaFuncionarios.resx">
+      <DependentUpon>ListaFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -126,6 +147,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Funcionarios\UpdateFuncionarios.resx">
+      <DependentUpon>UpdateFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
