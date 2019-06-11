@@ -146,8 +146,9 @@
             // vendasToolStripMenuItem1
             // 
             this.vendasToolStripMenuItem1.Name = "vendasToolStripMenuItem1";
-            this.vendasToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.vendasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem1.Text = "Vendas";
+            this.vendasToolStripMenuItem1.Click += new System.EventHandler(this.vendasToolStripMenuItem1_Click);
             // 
             // atualizarToolStripMenuItem
             // 
@@ -191,8 +192,9 @@
             // vendasToolStripMenuItem2
             // 
             this.vendasToolStripMenuItem2.Name = "vendasToolStripMenuItem2";
-            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem2.Text = "Vendas";
+            this.vendasToolStripMenuItem2.Click += new System.EventHandler(this.vendasToolStripMenuItem2_Click);
             // 
             // listarToolStripMenuItem
             // 
@@ -237,8 +239,9 @@
             // vendasToolStripMenuItem3
             // 
             this.vendasToolStripMenuItem3.Name = "vendasToolStripMenuItem3";
-            this.vendasToolStripMenuItem3.Size = new System.Drawing.Size(142, 22);
+            this.vendasToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem3.Text = "Vendas";
+            this.vendasToolStripMenuItem3.Click += new System.EventHandler(this.vendasToolStripMenuItem3_Click);
             // 
             // menuStrip1
             // 

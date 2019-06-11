@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_desc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_valor = new System.Windows.Forms.Label();
             this.cb_cliente = new System.Windows.Forms.ComboBox();
@@ -53,12 +53,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Descrição";
             // 
-            // textBox1
+            // txt_desc
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(334, 20);
-            this.textBox1.TabIndex = 1;
+            this.txt_desc.Location = new System.Drawing.Point(16, 43);
+            this.txt_desc.Name = "txt_desc";
+            this.txt_desc.Size = new System.Drawing.Size(334, 20);
+            this.txt_desc.TabIndex = 1;
             // 
             // label2
             // 
@@ -180,7 +180,7 @@
             this.Controls.Add(this.cb_cliente);
             this.Controls.Add(this.lbl_valor);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_desc);
             this.Controls.Add(this.label1);
             this.Name = "CadVendas";
             this.Text = "CadVendas";
@@ -192,7 +192,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_desc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_valor;
         private System.Windows.Forms.ComboBox cb_cliente;
