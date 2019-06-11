@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LojadeJogo
 {
@@ -10,7 +12,6 @@ namespace LojadeJogo
     {
         public void salvar(Funcionarios funcionarios)
         {
-
             ConnectionFactory connection = new ConnectionFactory();
 
             
@@ -22,10 +23,9 @@ namespace LojadeJogo
 
 
                 cmd.Connection = connection.getConnection();
-                cmd.CommandText = "INSERT INTO funcionarios(nome) VALUES(?nome)";
+                cmd.CommandText = "INSERT INTO funcionarios(nome, salario) VALUES(?nome, ?salario)";
                 cmd.Parameters.Add("?nome", MySqlDbType.VarChar).Value = funcionarios.Nome;
-                cmd.CommandText = "INSERT INTO funcionarios(salario) VALUES(?salario)";
-                cmd.Parameters.Add("?nome", MySqlDbType.VarChar).Value = funcionarios.Salario;
+                cmd.Parameters.Add("?salario", MySqlDbType.Double).Value = funcionarios.Salario;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Salvo com sucesso");
 
