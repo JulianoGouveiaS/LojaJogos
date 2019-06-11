@@ -44,9 +44,9 @@ namespace LojadeJogo.Forms.Jogo
             DAOJogos jogoDAO = new DAOJogos();
             Domain.Jogo jogoDomain = new Domain.Jogo();
 
-            jogoDomain.nome = txt_nome.Text;
-            jogoDomain.preco = double.Parse(txt_preco.Text.ToString());
-            jogoDomain.idPlataforma = int.Parse(comboBox_plataforma.SelectedValue.ToString());
+            jogoDomain.Nome = txt_nome.Text;
+            jogoDomain.Preco = double.Parse(txt_preco.Text.ToString());
+            jogoDomain.IdPlataforma = int.Parse(comboBox_plataforma.SelectedValue.ToString());
 
             jogoDAO.Salvar(jogoDomain);
             

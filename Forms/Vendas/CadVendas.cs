@@ -15,9 +15,6 @@ namespace LojadeJogo.Forms.Vendas
         DAOClientes daoC = new DAOClientes();
         DAOFuncionarios daoF = new DAOFuncionarios();
         DAOJogos daoJ = new DAOJogos();
-        Jogo j = new Jogo();
-        
-        
 
         int selectedDefaultJogo = 0;
 
@@ -33,12 +30,20 @@ namespace LojadeJogo.Forms.Vendas
         private void btn_efetuar_Click(object sender, EventArgs e)
         {
 
+            Console.WriteLine("cb_jogo.SelectedValue.ToString() => " + cb_jogo.SelectedValue.ToString());
+            Console.WriteLine("int.Parse(cb_jogo.SelectedValue.ToString()) => " + int.Parse(cb_jogo.SelectedValue.ToString()));
+            Console.WriteLine("cb_jogo.SelectedValue.ToString()) => " + cb_jogo.SelectedValue.ToString());
+            int indexJogoSelecionado = int.Parse(cb_jogo.SelectedValue.ToString());
+            Domain.Jogo jogoEscolhido = new Domain.Jogo();
+            jogoEscolhido = daoJ.buscarPorId(indexJogoSelecionado);
+            lbl_total.Text = jogoEscolhido.Preco.ToString();
         }
 
         private void cb_jogo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int indexJogoSelecionado = int.Parse(cb_jogo.SelectedValue.ToString());
-             
+            
         }
+
+        
     }
 }
