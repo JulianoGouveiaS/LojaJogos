@@ -25,7 +25,7 @@ namespace LojadeJogo
         private void bttn_Adicionar_Click(object sender, EventArgs e)
         {
             DAOFuncionarios dao = new DAOFuncionarios();
-            Funcionarios func = new Funcionarios();
+            Funcionario func = new Funcionario();
             func.Nome = txt_Nome.Text;
             func.Salario = Convert.ToInt32(txt_Salario.Text);
             dao.salvar(func);
