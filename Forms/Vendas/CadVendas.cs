@@ -2,14 +2,8 @@
 using LojadeJogo.DAO.Jogos;
 using LojadeJogo.DAO.Vendas;
 using LojadeJogo.Utils;
+using LojadeJogo.Domain;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LojadeJogo.Forms.Vendas
@@ -21,10 +15,16 @@ namespace LojadeJogo.Forms.Vendas
         DAOClientes daoC = new DAOClientes();
         DAOFuncionarios daoF = new DAOFuncionarios();
         DAOJogos daoJ = new DAOJogos();
+        Jogo j = new Jogo();
+        
+        
+
+        int selectedDefaultJogo = 0;
 
         public CadVendas()
         {
             InitializeComponent();
+
             utils.preencherCombo(cb_cliente, daoC.lista(), "idClientes", "nome");
             utils.preencherCombo(cb_jogo, daoJ.lista(), "idJogos", "nome");
             utils.preencherCombo(cb_funcionario, daoF.lista(), "idFuncionarios", "nome");
@@ -37,7 +37,8 @@ namespace LojadeJogo.Forms.Vendas
 
         private void cb_jogo_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            int indexJogoSelecionado = int.Parse(cb_jogo.SelectedValue.ToString());
+             
         }
     }
 }

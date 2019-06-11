@@ -41,7 +41,29 @@ namespace LojadeJogo.DAO.Jogos
             }
             
         }
+        public Jogo buscarPorId(int id)
+        {
+            connection.Conectar();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection.getConnection();
+            cmd.CommandText = "SELECT * FROM jogos WHERE idJogos = ?id";
+            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            Jogo jogoEncontrado = new Jogo();
 
+            while (reader.Read())
+            {
+                jogoEncontrado.idJogo = int.Parse(reader["idJogos"].ToString());
+                jogoEncontrado.idPlataforma = int.Parse(reader["idPlataformas"].ToString());
+                jogoEncontrado.nome = reader["nome"].ToString();
+                jogoEncontrado.preco = double.Parse(reader["preco"].ToString());
+            }
+
+            reader.Close();
+            connection.Close();
+            return jogoEncontrado;
+
+        }
         public DataTable lista()
         {
             ConnectionFactory connection = new ConnectionFactory();
@@ -115,42 +137,8 @@ namespace LojadeJogo.DAO.Jogos
             {
                 connection.Close();
             }
-
-
-
         }
 
-        public DataTable Listar(Jogo jogo)
-        {
-
-            DataTable tabela = new DataTable();
-            try
-            {
-                connection.Conectar();
-
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection.getConnection();
-                cmd.CommandText = "SELECT * FROM jogos ORDER BY idJogos";
-                MySqlDataReader leitor = cmd.ExecuteReader();
-
-                tabela.Load(leitor);
-               
-            }
-             catch(MySqlException ex)
-            {
-
-                MessageBox.Show(ex.StackTrace);
-                MessageBox.Show("Nao deu certo a conexao!!");
-
-            }
-            finally
-            {
-                
-                connection.Close();
-            }
-
-            return tabela;
-
-        }
+       
     }
 }
