@@ -138,7 +138,7 @@ namespace LojadeJogo.DAO.Jogos
             return tabela;
 
         }
-
         //
+        
     }
 }
