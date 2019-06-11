@@ -42,6 +42,20 @@ namespace LojadeJogo.DAO.Jogos
             
         }
 
+        public DataTable lista()
+        {
+            ConnectionFactory connection = new ConnectionFactory();
+            connection.Conectar();
+            MySqlCommand cmd = new MySqlCommand();
+
+            DataTable data = new DataTable("jogos");
+            cmd.Connection = connection.getConnection();
+            cmd.CommandText = "SELECT * FROM jogos ORDER BY idJogos";
+            data.Load(cmd.ExecuteReader());
+            return data;
+        }
+
+
         public void Excluir(Jogo jogo)
         {
             try
