@@ -67,6 +67,43 @@ namespace LojadeJogo.DAO.Clientes
             return data;
         }
 
+        public Cliente buscarPorId(int id)
+        {
+            connection.Conectar();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection.getConnection();
+            cmd.CommandText = "SELECT * FROM clientes WHERE idClientes = ?id";
+            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            Cliente clienteEncontrado = new Cliente();
+
+            while (reader.Read())
+            {
+                clienteEncontrado.Id = int.Parse(reader["idClientes"].ToString());
+                clienteEncontrado.Nome = reader["nome"].ToString();
+                clienteEncontrado.Telefone = Int64.Parse(reader["telefone"].ToString());
+            }
+
+            reader.Close();
+            connection.Close();
+            return clienteEncontrado;
+
+        }
+
+
+        public void Editar(Cliente cliente)
+        {
+            connection.Conectar();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection.getConnection();
+            //UPDATE clientes SET nome = 'juliano', telefone = '11111111' WHERE idClientes = 1
+            cmd.CommandText = "UPDATE clientes SET nome = ?nome, telefone = ?telefone WHERE idClientes = ?id";
+            cmd.Parameters.Add("?nome", MySqlDbType.String).Value = cliente.Nome;
+            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = cliente.Id;
+            cmd.Parameters.Add("?telefone", MySqlDbType.Int32).Value = cliente.Telefone;
+            cmd.ExecuteNonQuery();
+
+        }
 
     }
 }

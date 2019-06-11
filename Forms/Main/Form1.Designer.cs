@@ -177,32 +177,33 @@
             // plataformasToolStripMenuItem2
             // 
             this.plataformasToolStripMenuItem2.Name = "plataformasToolStripMenuItem2";
-            this.plataformasToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.plataformasToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.plataformasToolStripMenuItem2.Text = "Plataformas";
             this.plataformasToolStripMenuItem2.Click += new System.EventHandler(this.plataformasToolStripMenuItem2_Click);
             // 
             // funcionariosToolStripMenuItem2
             // 
             this.funcionariosToolStripMenuItem2.Name = "funcionariosToolStripMenuItem2";
-            this.funcionariosToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.funcionariosToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.funcionariosToolStripMenuItem2.Text = "Funcionarios";
             // 
             // jogosToolStripMenuItem2
             // 
             this.jogosToolStripMenuItem2.Name = "jogosToolStripMenuItem2";
-            this.jogosToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.jogosToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.jogosToolStripMenuItem2.Text = "Jogos";
             // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
+            this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
             // 
             // vendasToolStripMenuItem2
             // 
             this.vendasToolStripMenuItem2.Name = "vendasToolStripMenuItem2";
-            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem2.Text = "Vendas";
             // 
             // listarToolStripMenuItem

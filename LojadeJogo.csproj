@@ -72,6 +72,12 @@
     <Compile Include="Forms\Clientes\ListaCliente.Designer.cs">
       <DependentUpon>ListaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Clientes\UpdateClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\UpdateClientes.Designer.cs">
+      <DependentUpon>UpdateClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Funcionarios\CadFuncionarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\ListaCliente.resx">
       <DependentUpon>ListaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clientes\UpdateClientes.resx">
+      <DependentUpon>UpdateClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Funcionarios\CadFuncionarios.resx">
       <DependentUpon>CadFuncionarios.cs</DependentUpon>
