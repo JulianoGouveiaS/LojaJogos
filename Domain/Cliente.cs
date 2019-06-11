@@ -4,23 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LojadeJogo
+namespace LojadeJogo.Domain
 {
-    class Funcionario
+    class Cliente
     {
-        public int id;
-        private double salario;
+        private Int64 telefone;
         private string nome;
 
-        public string Nome {
+        public string Nome
+        {
             get { return nome; }
             set { nome = value; }
         }
 
-        public double Salario {
-            get { return salario; }
-            set { salario = value; }
+        public Int64 Telefone
+        {
+            get { return telefone; }
+            set { telefone = value; }
         }
-
     }
 }
