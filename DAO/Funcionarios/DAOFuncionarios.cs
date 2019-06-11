@@ -10,10 +10,13 @@ namespace LojadeJogo
 {
     class DAOFuncionarios
     {
+
+        ConnectionFactory connection = new ConnectionFactory();
+
         public void salvar(Funcionarios funcionarios)
         {
 
-            ConnectionFactory connection = new ConnectionFactory();
+            
 
             try
             {
@@ -38,6 +41,13 @@ namespace LojadeJogo
             {
                 connection.Close();
             }
+        }
+
+        public void Excluir(Funcionarios funcionarios)
+        {
+            MySqlConnection conexao;
+            conexao = connection.getConnection();
+
         }
 
 
