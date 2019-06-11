@@ -1,4 +1,5 @@
 ﻿using LojadeJogo.Forms.Clientes;
+using LojadeJogo.Forms.Jogo;
 using LojadeJogo.Forms.Plataformas;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,13 @@ namespace LojadeJogo
         {
 
             ListaCliente form = new ListaCliente();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void jogosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadJogo form = new CadJogo();
             form.MdiParent = this;
             form.Show();
         }

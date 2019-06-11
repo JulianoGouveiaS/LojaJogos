@@ -83,7 +83,7 @@
             // comboBox_plataforma
             // 
             this.comboBox_plataforma.FormattingEnabled = true;
-            this.comboBox_plataforma.Location = new System.Drawing.Point(117, 123);
+            this.comboBox_plataforma.Location = new System.Drawing.Point(117, 120);
             this.comboBox_plataforma.Name = "comboBox_plataforma";
             this.comboBox_plataforma.Size = new System.Drawing.Size(441, 21);
             this.comboBox_plataforma.TabIndex = 5;

@@ -17,6 +17,7 @@ namespace LojadeJogo.Forms.Jogo
         public CadJogo()
         {
             InitializeComponent();
+            tabelaPlataforma = daoPlataformas.lista();
             utils.preencherCombo(comboBox_plataforma, tabelaPlataforma, "idPlataformas", "nome");
             
             
@@ -44,7 +45,7 @@ namespace LojadeJogo.Forms.Jogo
             Domain.Jogo jogoDomain = new Domain.Jogo();
 
             jogoDomain.nome = txt_nome.Text;
-            jogoDomain.preco = double.Parse(txt_preco.Text);
+            jogoDomain.preco = double.Parse(txt_preco.Text.ToString());
             jogoDomain.idPlataforma = int.Parse(comboBox_plataforma.SelectedValue.ToString());
 
             jogoDAO.Salvar(jogoDomain);

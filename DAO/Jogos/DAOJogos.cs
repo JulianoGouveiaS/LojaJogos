@@ -18,16 +18,18 @@ namespace LojadeJogo.DAO.Jogos
             try
             {
                 connection.Conectar();
-                MySqlConnection conexao = connection.getConnection();
+                
                 MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection.getConnection();
                 cmd.CommandText = "INSERT INTO jogos(nome, preco, idPlataformas) VALUES(?nome, ?preco, ?idPlataformas)";
                 cmd.Parameters.Add("?nome", MySqlDbType.VarChar).Value = jogo.nome;
                 cmd.Parameters.Add("?preco", MySqlDbType.Double).Value = jogo.preco;
                 cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.idPlataforma;
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery(); 
                 MessageBox.Show("Salvo com sucesso");
             } catch(Exception ex)
-            {
+            { 
+
                 MessageBox.Show(ex.StackTrace);
                 MessageBox.Show("Nao deu certo a conexao!!");
 

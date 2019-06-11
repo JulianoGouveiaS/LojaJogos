@@ -8,6 +8,7 @@ namespace LojadeJogo.Domain
 {
     class Jogo
     {
+        public int idJogo { get; set; }
         public String nome { get; set; }
         public double preco { get; set; }
         public int idPlataforma { get; set; }
