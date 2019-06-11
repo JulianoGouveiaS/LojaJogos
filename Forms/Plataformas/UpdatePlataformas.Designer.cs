@@ -45,6 +45,7 @@
             this.cmbPlataformas.Name = "cmbPlataformas";
             this.cmbPlataformas.Size = new System.Drawing.Size(430, 21);
             this.cmbPlataformas.TabIndex = 0;
+            this.cmbPlataformas.SelectedIndexChanged += new System.EventHandler(this.cmbPlataformas_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -77,6 +78,7 @@
             this.label2.Size = new System.Drawing.Size(46, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nome:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -87,6 +89,7 @@
             this.label3.Size = new System.Drawing.Size(22, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Id:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtId
             // 
@@ -95,6 +98,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(93, 20);
             this.txtId.TabIndex = 5;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // txtNome
             // 
@@ -103,6 +107,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(346, 20);
             this.txtNome.TabIndex = 6;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // button2
             // 
@@ -130,6 +135,7 @@
             this.Controls.Add(this.cmbPlataformas);
             this.Name = "UpdatePlataformas";
             this.Text = "UpdatePlataformas";
+            this.Load += new System.EventHandler(this.UpdatePlataformas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

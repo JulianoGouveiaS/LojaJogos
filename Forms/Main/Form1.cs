@@ -83,6 +83,36 @@ namespace LojadeJogo
             form.Show();
         }
 
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            UpdateClientes form = new UpdateClientes();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void funcionariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            ExcFuncionario form = new ExcFuncionario();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void funcionariosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            UpdateFuncionarios form = new UpdateFuncionarios();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void funcionariosToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            ListaFuncionarios form = new ListaFuncionarios();
+            form.MdiParent = this;
+            form.Show();
+        }
+
         private void jogosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CadJogo form = new CadJogo();

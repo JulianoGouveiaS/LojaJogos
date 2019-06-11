@@ -8,9 +8,15 @@ namespace LojadeJogo.Domain
 {
     class Cliente
     {
+        private int id;
         private Int64 telefone;
         private string nome;
 
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         public string Nome
         {
             get { return nome; }

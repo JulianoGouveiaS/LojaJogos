@@ -36,7 +36,7 @@ namespace LojadeJogo.Forms.Plataformas
             plataformaEscolhida = dao.buscarPorId(idEscolhido);
             txtId.Text = plataformaEscolhida.id.ToString();
             txtNome.Text = plataformaEscolhida.Nome;
-            txtId.Enabled = true;
+  
             txtNome.Enabled = true;
         }
 
@@ -50,6 +50,36 @@ namespace LojadeJogo.Forms.Plataformas
             txtId.Enabled = false;
             txtNome.Enabled = false;
             utils.preencherCombo(cmbPlataformas, dao.lista(), "idPlataformas", "nome");
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbPlataformas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdatePlataformas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
