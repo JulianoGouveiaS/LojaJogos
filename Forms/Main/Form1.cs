@@ -1,4 +1,5 @@
-﻿using LojadeJogo.Forms.Plataformas;
+﻿using LojadeJogo.Forms.Clientes;
+using LojadeJogo.Forms.Plataformas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,17 +42,44 @@ namespace LojadeJogo
 
         private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CadFuncionarios func = new CadFuncionarios();
-            func.MdiParent = this;
-            func.Show();
+            CadFuncionarios form = new CadFuncionarios();
+            form.MdiParent = this;
+            form.Show();
 
         }
 
         private void plataformasToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            ListaPlataformas func = new ListaPlataformas();
-            func.MdiParent = this;
-            func.Show();
+            ListaPlataformas form = new ListaPlataformas();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadClientes form = new CadClientes();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcCliente form = new ExcCliente();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void clientesToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+            ListaCliente form = new ListaCliente();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

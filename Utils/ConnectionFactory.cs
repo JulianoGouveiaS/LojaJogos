@@ -18,10 +18,10 @@ namespace LojadeJogo
             try
             {
                 //Conexao Vitor
-                connection = new MySqlConnection("datasource=127.0.0.1;port=3306;database=lojadejogos;username=root;password=baseball64");
+               // connection = new MySqlConnection("datasource=127.0.0.1;port=3306;database=lojadejogos;username=root;password=baseball64");
 
                 //Conexao Juliano
-                //connection = new MySqlConnection("datasource=127.0.0.1;port=3306;database=lojadejogos;username=root;password=admin");
+                connection = new MySqlConnection("datasource=127.0.0.1;port=3306;database=lojadejogos;username=root;password=admin");
 
                 connection.Open();
             } catch(Exception ex)
