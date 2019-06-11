@@ -26,6 +26,15 @@ namespace LojadeJogo.DAO.Jogos
                 cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.idPlataforma;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Salvo com sucesso");
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show("Nao deu certo a conexao!!");
+
+            }
+            finally
+            {
+               connection.Close();
             }
             
         }
