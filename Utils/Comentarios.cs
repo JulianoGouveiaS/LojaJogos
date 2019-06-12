@@ -10,7 +10,8 @@ namespace LojadeJogo.Utils
     {
 
         /* 
- //Deletar vendas quando deletar funcionario
+ 
+        //Deletar vendas quando deletar funcionario
   delimiter #
 create trigger tr_deleteFuncionario before delete on funcionarios
 for each row
