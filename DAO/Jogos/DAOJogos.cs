@@ -41,6 +41,42 @@ namespace LojadeJogo.DAO.Jogos
             }
             
         }
+        public Jogo buscarPorId(int id)
+        {
+            connection.Conectar();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection.getConnection();
+            cmd.CommandText = "SELECT * FROM jogos WHERE idJogos = ?id";
+            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            Jogo jogoEncontrado = new Jogo();
+
+            while (reader.Read())
+            {
+                jogoEncontrado.idJogo = int.Parse(reader["idJogos"].ToString());
+                jogoEncontrado.idPlataforma = int.Parse(reader["idPlataformas"].ToString());
+                jogoEncontrado.nome = reader["nome"].ToString();
+                jogoEncontrado.preco = double.Parse(reader["preco"].ToString());
+            }
+
+            reader.Close();
+            connection.Close();
+            return jogoEncontrado;
+
+        }
+        public DataTable lista()
+        {
+            ConnectionFactory connection = new ConnectionFactory();
+            connection.Conectar();
+            MySqlCommand cmd = new MySqlCommand();
+
+            DataTable data = new DataTable("jogos");
+            cmd.Connection = connection.getConnection();
+            cmd.CommandText = "SELECT * FROM jogos ORDER BY idJogos";
+            data.Load(cmd.ExecuteReader());
+            return data;
+        }
+
 
         public void Excluir(Jogo jogo)
         {
@@ -101,9 +137,6 @@ namespace LojadeJogo.DAO.Jogos
             {
                 connection.Close();
             }
-
-
-
         }
 
         public DataTable Listar(Jogo jogo)

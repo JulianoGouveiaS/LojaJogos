@@ -17,7 +17,6 @@ namespace LojadeJogo
         Utilitarios utils = new Utilitarios();
         DAOFuncionarios dao = new DAOFuncionarios();
 
-       
         
             public ExcFuncionario()
             {
@@ -26,7 +25,6 @@ namespace LojadeJogo
                  utils.preencherCombo(cmb_Funcionarios, dao.lista(), "idFuncionarios", "nome");
         }
         
-
         private void bttn_Excluir_Click(object sender, EventArgs e)
         {
             int idEscolhido = int.Parse(cmb_Funcionarios.SelectedValue.ToString());

@@ -6,11 +6,33 @@ using System.Threading.Tasks;
 
 namespace LojadeJogo.Domain
 {
-    class Jogo
+    public class Jogo
     {
-        public int idJogo { get; set; }
-        public String nome { get; set; }
-        public double preco { get; set; }
-        public int idPlataforma { get; set; }
+        private int id;
+        private int idPlataforma;
+        private double preco;
+        private string nome;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public int IdPlataforma
+        {
+            get { return idPlataforma; }
+            set { idPlataforma = value; }
+        }
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
+        public double Preco
+        {
+            get { return preco; }
+            set { preco = value; }
+        }
     }
 }
