@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.VS2015.WinForms.12.0.2.2402\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\MySql.Data.dll</HintPath>
@@ -135,6 +147,12 @@
     </Compile>
     <Compile Include="Forms\Plataformas\ListaPlataformas.Designer.cs">
       <DependentUpon>ListaPlataformas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Plataformas\Relatorio\RelatorioPlataformas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Plataformas\Relatorio\RelatorioPlataformas.Designer.cs">
+      <DependentUpon>RelatorioPlataformas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Plataformas\UpdatePlataformas.cs">
       <SubType>Form</SubType>
@@ -281,6 +299,8 @@
     <EmbeddedResource Include="Forms\Funcionarios\UpdateFuncionarios.resx">
       <DependentUpon>UpdateFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\LojadeJogo.Domain.Plataforma.datasource" />
     <None Include="Properties\DataSources\LojadeJogo.Domain.Venda.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
