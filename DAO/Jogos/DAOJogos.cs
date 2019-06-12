@@ -23,9 +23,9 @@ namespace LojadeJogo.DAO.Jogos
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection.getConnection();
                 cmd.CommandText = "INSERT INTO jogos(nome, preco, idPlataformas) VALUES(?nome, ?preco, ?idPlataformas)";
-                cmd.Parameters.Add("?nome", MySqlDbType.VarChar).Value = jogo.nome;
-                cmd.Parameters.Add("?preco", MySqlDbType.Double).Value = jogo.preco;
-                cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.idPlataforma;
+                cmd.Parameters.Add("?nome", MySqlDbType.VarChar).Value = jogo.Nome;
+                cmd.Parameters.Add("?preco", MySqlDbType.Double).Value = jogo.Preco;
+                cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.IdPlataforma;
                 cmd.ExecuteNonQuery(); 
                 MessageBox.Show("Salvo com sucesso");
             } catch(Exception ex)
@@ -53,10 +53,10 @@ namespace LojadeJogo.DAO.Jogos
 
             while (reader.Read())
             {
-                jogoEncontrado.idJogo = int.Parse(reader["idJogos"].ToString());
-                jogoEncontrado.idPlataforma = int.Parse(reader["idPlataformas"].ToString());
-                jogoEncontrado.nome = reader["nome"].ToString();
-                jogoEncontrado.preco = double.Parse(reader["preco"].ToString());
+                jogoEncontrado.Id = int.Parse(reader["idJogos"].ToString());
+                jogoEncontrado.IdPlataforma = int.Parse(reader["idPlataformas"].ToString());
+                jogoEncontrado.Nome = reader["nome"].ToString();
+                jogoEncontrado.Preco = double.Parse(reader["preco"].ToString());
             }
 
             reader.Close();
@@ -119,10 +119,10 @@ namespace LojadeJogo.DAO.Jogos
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection.getConnection();
                 cmd.CommandText = "UPDATE jogos SET (nome = ?nome, preco = ?preco, idPlataformas = ?idPlataformas) where idJogos = ?idJogos";
-                cmd.Parameters.Add("?nome", MySqlDbType.VarString).Value = jogo.nome;
-                cmd.Parameters.Add("?preco", MySqlDbType.Double).Value = jogo.preco;
-                cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.idPlataforma;
-                cmd.Parameters.Add("?idJogos", MySqlDbType.Int32).Value = jogo.idJogo;
+                cmd.Parameters.Add("?nome", MySqlDbType.VarString).Value = jogo.Nome;
+                cmd.Parameters.Add("?preco", MySqlDbType.Double).Value = jogo.Preco;
+                cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.IdPlataforma;
+                cmd.Parameters.Add("?idJogos", MySqlDbType.Int32).Value = jogo.Id;
                 cmd.ExecuteNonQuery();
 
             }

@@ -104,7 +104,7 @@ namespace LojadeJogo.DAO.Vendas
                 vendaEncontrada.Valor = double.Parse(reader["valor"].ToString());
                 vendaEncontrada.IdCliente = int.Parse(reader["idClientes"].ToString());
                 vendaEncontrada.IdJogo = int.Parse(reader["idJogos"].ToString());
-                vendaEncontrada.IdFuncionario = int.Parse(reader["idFuncionario"].ToString());
+                vendaEncontrada.IdFuncionario = int.Parse(reader["idFuncionarios"].ToString());
 
             }
 

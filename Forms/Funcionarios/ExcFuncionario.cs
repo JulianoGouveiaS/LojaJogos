@@ -32,5 +32,10 @@ namespace LojadeJogo
             
             utils.preencherCombo(cmb_Funcionarios, dao.lista(), "idFuncionarios", "nome");
         }
+
+        private void cmb_Funcionarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

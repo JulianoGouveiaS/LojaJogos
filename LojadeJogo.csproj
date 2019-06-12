@@ -137,6 +137,24 @@
     <Compile Include="Forms\Vendas\CadVendas.Designer.cs">
       <DependentUpon>CadVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Vendas\ExcVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\ExcVenda.Designer.cs">
+      <DependentUpon>ExcVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\ListaVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\ListaVendas.Designer.cs">
+      <DependentUpon>ListaVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\UpdateVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\UpdateVendas.Designer.cs">
+      <DependentUpon>UpdateVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Comentarios.cs" />
     <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
@@ -197,6 +215,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vendas\CadVendas.resx">
       <DependentUpon>CadVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\ExcVenda.resx">
+      <DependentUpon>ExcVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\ListaVendas.resx">
+      <DependentUpon>ListaVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\UpdateVendas.resx">
+      <DependentUpon>UpdateVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,6 +1,6 @@
-﻿namespace LojadeJogo
+﻿namespace LojadeJogo.Forms.Vendas
 {
-    partial class ExcFuncionario
+    partial class ExcVenda
     {
         /// <summary>
         /// Required designer variable.
@@ -28,45 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmb_Funcionarios = new System.Windows.Forms.ComboBox();
             this.bttn_Excluir = new System.Windows.Forms.Button();
+            this.cmb_Vendas = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // cmb_Funcionarios
-            // 
-            this.cmb_Funcionarios.FormattingEnabled = true;
-            this.cmb_Funcionarios.Location = new System.Drawing.Point(24, 21);
-            this.cmb_Funcionarios.Name = "cmb_Funcionarios";
-            this.cmb_Funcionarios.Size = new System.Drawing.Size(313, 21);
-            this.cmb_Funcionarios.TabIndex = 0;
-            this.cmb_Funcionarios.SelectedIndexChanged += new System.EventHandler(this.cmb_Funcionarios_SelectedIndexChanged);
             // 
             // bttn_Excluir
             // 
-            this.bttn_Excluir.Location = new System.Drawing.Point(369, 19);
+            this.bttn_Excluir.Location = new System.Drawing.Point(357, 10);
             this.bttn_Excluir.Name = "bttn_Excluir";
             this.bttn_Excluir.Size = new System.Drawing.Size(75, 23);
-            this.bttn_Excluir.TabIndex = 1;
+            this.bttn_Excluir.TabIndex = 3;
             this.bttn_Excluir.Text = "Excluir";
             this.bttn_Excluir.UseVisualStyleBackColor = true;
             this.bttn_Excluir.Click += new System.EventHandler(this.bttn_Excluir_Click);
             // 
-            // ExcFuncionario
+            // cmb_Vendas
+            // 
+            this.cmb_Vendas.FormattingEnabled = true;
+            this.cmb_Vendas.Location = new System.Drawing.Point(12, 12);
+            this.cmb_Vendas.Name = "cmb_Vendas";
+            this.cmb_Vendas.Size = new System.Drawing.Size(313, 21);
+            this.cmb_Vendas.TabIndex = 2;
+            // 
+            // ExcVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 52);
+            this.ClientSize = new System.Drawing.Size(450, 45);
             this.Controls.Add(this.bttn_Excluir);
-            this.Controls.Add(this.cmb_Funcionarios);
-            this.Name = "ExcFuncionario";
-            this.Text = "ExcFuncionario";
+            this.Controls.Add(this.cmb_Vendas);
+            this.Name = "ExcVenda";
+            this.Text = "ExcVenda";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmb_Funcionarios;
         private System.Windows.Forms.Button bttn_Excluir;
+        private System.Windows.Forms.ComboBox cmb_Vendas;
     }
 }
