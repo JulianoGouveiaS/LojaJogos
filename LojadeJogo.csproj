@@ -155,7 +155,6 @@
     <Compile Include="Forms\Vendas\UpdateVendas.Designer.cs">
       <DependentUpon>UpdateVendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\Comentarios.cs" />
     <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
     <Compile Include="Domain\Plataforma.cs" />
