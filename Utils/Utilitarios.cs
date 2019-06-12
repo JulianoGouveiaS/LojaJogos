@@ -36,7 +36,6 @@ namespace LojadeJogo.Utils
                 MessageBox.Show("Impossível estabelecer conexão");
                 connection.Close();
             }
-
         }
 
         /* 

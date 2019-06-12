@@ -1,7 +1,9 @@
 ﻿using LojadeJogo.Forms.Clientes;
 using LojadeJogo.Forms.Jogo;
+using LojadeJogo.Forms.Jogo.Graficos;
 using LojadeJogo.Forms.Plataformas;
 using LojadeJogo.Forms.Vendas;
+using LojadeJogo.Forms.Vendas.Graficos;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,8 @@ namespace LojadeJogo
             CadPlataforma form1 = new CadPlataforma();
             form1.MdiParent = this;
             form1.Show();
+
+
         }
 
         private void plataformasToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -174,6 +178,26 @@ namespace LojadeJogo
             form.MdiParent = this;
             form.Show();
 
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void valorXDescricaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            valorXdescricao form = new valorXdescricao();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void nomeXplataformaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            nomeXplataforma form = new nomeXplataforma();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

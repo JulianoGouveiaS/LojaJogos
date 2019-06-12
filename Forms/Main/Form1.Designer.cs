@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plataformasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,19 @@
             this.vendasToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.graficosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.valorXDescricaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.plataformasToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionariosToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.jogosToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nomeXplataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vendaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // cadastrosToolStripMenuItem
@@ -119,35 +132,35 @@
             // plataformasToolStripMenuItem1
             // 
             this.plataformasToolStripMenuItem1.Name = "plataformasToolStripMenuItem1";
-            this.plataformasToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.plataformasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.plataformasToolStripMenuItem1.Text = "Plataformas";
             this.plataformasToolStripMenuItem1.Click += new System.EventHandler(this.plataformasToolStripMenuItem1_Click);
             // 
             // funcionariosToolStripMenuItem1
             // 
             this.funcionariosToolStripMenuItem1.Name = "funcionariosToolStripMenuItem1";
-            this.funcionariosToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.funcionariosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.funcionariosToolStripMenuItem1.Text = "Funcionarios";
             this.funcionariosToolStripMenuItem1.Click += new System.EventHandler(this.funcionariosToolStripMenuItem1_Click);
             // 
             // jogosToolStripMenuItem1
             // 
             this.jogosToolStripMenuItem1.Name = "jogosToolStripMenuItem1";
-            this.jogosToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.jogosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.jogosToolStripMenuItem1.Text = "Jogos";
             this.jogosToolStripMenuItem1.Click += new System.EventHandler(this.jogosToolStripMenuItem1_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // vendasToolStripMenuItem1
             // 
             this.vendasToolStripMenuItem1.Name = "vendasToolStripMenuItem1";
-            this.vendasToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.vendasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem1.Text = "Vendas";
             this.vendasToolStripMenuItem1.Click += new System.EventHandler(this.vendasToolStripMenuItem1_Click);
             // 
@@ -166,35 +179,35 @@
             // plataformasToolStripMenuItem2
             // 
             this.plataformasToolStripMenuItem2.Name = "plataformasToolStripMenuItem2";
-            this.plataformasToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.plataformasToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.plataformasToolStripMenuItem2.Text = "Plataformas";
             this.plataformasToolStripMenuItem2.Click += new System.EventHandler(this.plataformasToolStripMenuItem2_Click);
             // 
             // funcionariosToolStripMenuItem2
             // 
             this.funcionariosToolStripMenuItem2.Name = "funcionariosToolStripMenuItem2";
-            this.funcionariosToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.funcionariosToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.funcionariosToolStripMenuItem2.Text = "Funcionarios";
             this.funcionariosToolStripMenuItem2.Click += new System.EventHandler(this.funcionariosToolStripMenuItem2_Click);
             // 
             // jogosToolStripMenuItem2
             // 
             this.jogosToolStripMenuItem2.Name = "jogosToolStripMenuItem2";
-            this.jogosToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.jogosToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.jogosToolStripMenuItem2.Text = "Jogos";
             this.jogosToolStripMenuItem2.Click += new System.EventHandler(this.jogosToolStripMenuItem2_Click);
             // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
             this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
             // 
             // vendasToolStripMenuItem2
             // 
             this.vendasToolStripMenuItem2.Name = "vendasToolStripMenuItem2";
-            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem2.Text = "Vendas";
             this.vendasToolStripMenuItem2.Click += new System.EventHandler(this.vendasToolStripMenuItem2_Click);
             // 
@@ -258,26 +271,98 @@
             this.cadastrosToolStripMenuItem,
             this.remoçõesToolStripMenuItem,
             this.atualizarToolStripMenuItem,
-            this.listarToolStripMenuItem});
+            this.listarToolStripMenuItem,
+            this.graficosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // graficosToolStripMenuItem
+            // 
+            this.graficosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plataformasToolStripMenuItem4,
+            this.funcionariosToolStripMenuItem4,
+            this.jogosToolStripMenuItem4,
+            this.clientesToolStripMenuItem3,
+            this.vendasToolStripMenuItem4});
+            this.graficosToolStripMenuItem.Name = "graficosToolStripMenuItem";
+            this.graficosToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.graficosToolStripMenuItem.Text = "Graficos";
+            // 
+            // vendasToolStripMenuItem4
+            // 
+            this.vendasToolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.valorXDescricaoToolStripMenuItem});
+            this.vendasToolStripMenuItem4.Name = "vendasToolStripMenuItem4";
+            this.vendasToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.vendasToolStripMenuItem4.Text = "Vendas";
+            // 
+            // valorXDescricaoToolStripMenuItem
+            // 
+            this.valorXDescricaoToolStripMenuItem.Name = "valorXDescricaoToolStripMenuItem";
+            this.valorXDescricaoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.valorXDescricaoToolStripMenuItem.Text = "Valor x Descricao";
+            this.valorXDescricaoToolStripMenuItem.Click += new System.EventHandler(this.valorXDescricaoToolStripMenuItem_Click);
+            // 
+            // vendaBindingSource
+            // 
+            this.vendaBindingSource.DataSource = typeof(LojadeJogo.Domain.Venda);
+            // 
+            // vendaBindingSource1
+            // 
+            this.vendaBindingSource1.DataSource = typeof(LojadeJogo.Domain.Venda);
+            // 
+            // plataformasToolStripMenuItem4
+            // 
+            this.plataformasToolStripMenuItem4.Name = "plataformasToolStripMenuItem4";
+            this.plataformasToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.plataformasToolStripMenuItem4.Text = "Plataformas";
+            // 
+            // funcionariosToolStripMenuItem4
+            // 
+            this.funcionariosToolStripMenuItem4.Name = "funcionariosToolStripMenuItem4";
+            this.funcionariosToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.funcionariosToolStripMenuItem4.Text = "Funcionarios";
+            // 
+            // jogosToolStripMenuItem4
+            // 
+            this.jogosToolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nomeXplataformaToolStripMenuItem});
+            this.jogosToolStripMenuItem4.Name = "jogosToolStripMenuItem4";
+            this.jogosToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.jogosToolStripMenuItem4.Text = "Jogos";
+            // 
+            // clientesToolStripMenuItem3
+            // 
+            this.clientesToolStripMenuItem3.Name = "clientesToolStripMenuItem3";
+            this.clientesToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem3.Text = "Clientes";
+            // 
+            // nomeXplataformaToolStripMenuItem
+            // 
+            this.nomeXplataformaToolStripMenuItem.Name = "nomeXplataformaToolStripMenuItem";
+            this.nomeXplataformaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nomeXplataformaToolStripMenuItem.Text = "nomeXplataforma";
+            this.nomeXplataformaToolStripMenuItem.Click += new System.EventHandler(this.nomeXplataformaToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 365);
+            this.ClientSize = new System.Drawing.Size(984, 749);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vendaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendaBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,6 +396,16 @@
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.BindingSource vendaBindingSource;
+        private System.Windows.Forms.BindingSource vendaBindingSource1;
+        private System.Windows.Forms.ToolStripMenuItem graficosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem valorXDescricaoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem jogosToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem nomeXplataformaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem3;
     }
 }
 
