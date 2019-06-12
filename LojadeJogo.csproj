@@ -137,6 +137,7 @@
     <Compile Include="Forms\Vendas\CadVendas.Designer.cs">
       <DependentUpon>CadVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Comentarios.cs" />
     <Compile Include="Utils\ConnectionFactory.cs" />
     <Compile Include="DAO\Plataformas\DaoPlataformas.cs" />
     <Compile Include="Domain\Plataforma.cs" />

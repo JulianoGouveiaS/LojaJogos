@@ -88,7 +88,7 @@ namespace LojadeJogo.DAO.Jogos
             cmd.Connection = connection.getConnection();
 
             cmd.CommandText = "DELETE FROM jogos WHERE idJogos = ?id";
-            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = jogo.idJogo;
+            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = jogo.Id;
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
 
@@ -171,7 +171,6 @@ namespace LojadeJogo.DAO.Jogos
             return tabela;
 
         }
-        //
-        
+
     }
 }
