@@ -91,6 +91,7 @@ namespace LojadeJogo.DAO.Jogos
             cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = jogo.Id;
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
+            MessageBox.Show("Excluido com sucesso");
 
             }
             catch (MySqlException ex)
@@ -118,12 +119,13 @@ namespace LojadeJogo.DAO.Jogos
                 connection.Conectar();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection.getConnection();
-                cmd.CommandText = "UPDATE jogos SET (nome = ?nome, preco = ?preco, idPlataformas = ?idPlataformas) where idJogos = ?idJogos";
+                cmd.CommandText = "UPDATE jogos SET nome = ?nome, preco = ?preco, idPlataformas = ?idPlataformas where idJogos = ?idJogos";
                 cmd.Parameters.Add("?nome", MySqlDbType.VarString).Value = jogo.Nome;
                 cmd.Parameters.Add("?preco", MySqlDbType.Double).Value = jogo.Preco;
                 cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.IdPlataforma;
                 cmd.Parameters.Add("?idJogos", MySqlDbType.Int32).Value = jogo.Id;
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Editado com sucesso!!");
 
             }
             catch (MySqlException ex)
@@ -139,38 +141,7 @@ namespace LojadeJogo.DAO.Jogos
             }
         }
 
-        public DataTable Listar(Jogo jogo)
-        {
-
-            DataTable tabela = new DataTable();
-            try
-            {
-                connection.Conectar();
-
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection.getConnection();
-                cmd.CommandText = "SELECT * FROM jogos ORDER BY idJogos";
-                MySqlDataReader leitor = cmd.ExecuteReader();
-
-                tabela.Load(leitor);
-               
-            }
-             catch(MySqlException ex)
-            {
-
-                MessageBox.Show(ex.StackTrace);
-                MessageBox.Show("Nao deu certo a conexao!!");
-
-            }
-            finally
-            {
-                
-                connection.Close();
-            }
-
-            return tabela;
-
-        }
+       
 
     }
 }

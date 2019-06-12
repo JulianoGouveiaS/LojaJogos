@@ -153,5 +153,27 @@ namespace LojadeJogo
             form.MdiParent = this;
             form.Show();
         }
+
+        private void jogosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ExcJogo form = new ExcJogo();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void jogosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            UpdateJogo form = new UpdateJogo();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void jogosToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            ListaJogo form = new ListaJogo();
+            form.MdiParent = this;
+            form.Show();
+
+        }
     }
 }

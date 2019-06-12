@@ -52,8 +52,8 @@
             this.jogosToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,7 +100,7 @@
             // vendasToolStripMenuItem
             // 
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
@@ -135,6 +135,7 @@
             this.jogosToolStripMenuItem1.Name = "jogosToolStripMenuItem1";
             this.jogosToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.jogosToolStripMenuItem1.Text = "Jogos";
+            this.jogosToolStripMenuItem1.Click += new System.EventHandler(this.jogosToolStripMenuItem1_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -146,7 +147,7 @@
             // vendasToolStripMenuItem1
             // 
             this.vendasToolStripMenuItem1.Name = "vendasToolStripMenuItem1";
-            this.vendasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.vendasToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.vendasToolStripMenuItem1.Text = "Vendas";
             this.vendasToolStripMenuItem1.Click += new System.EventHandler(this.vendasToolStripMenuItem1_Click);
             // 
@@ -181,6 +182,7 @@
             this.jogosToolStripMenuItem2.Name = "jogosToolStripMenuItem2";
             this.jogosToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
             this.jogosToolStripMenuItem2.Text = "Jogos";
+            this.jogosToolStripMenuItem2.Click += new System.EventHandler(this.jogosToolStripMenuItem2_Click);
             // 
             // clientesToolStripMenuItem1
             // 
@@ -192,7 +194,7 @@
             // vendasToolStripMenuItem2
             // 
             this.vendasToolStripMenuItem2.Name = "vendasToolStripMenuItem2";
-            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
             this.vendasToolStripMenuItem2.Text = "Vendas";
             this.vendasToolStripMenuItem2.Click += new System.EventHandler(this.vendasToolStripMenuItem2_Click);
             // 
@@ -212,27 +214,28 @@
             // plataformasToolStripMenuItem3
             // 
             this.plataformasToolStripMenuItem3.Name = "plataformasToolStripMenuItem3";
-            this.plataformasToolStripMenuItem3.Size = new System.Drawing.Size(142, 22);
+            this.plataformasToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.plataformasToolStripMenuItem3.Text = "Plataformas";
             this.plataformasToolStripMenuItem3.Click += new System.EventHandler(this.plataformasToolStripMenuItem3_Click);
             // 
             // funcionariosToolStripMenuItem3
             // 
             this.funcionariosToolStripMenuItem3.Name = "funcionariosToolStripMenuItem3";
-            this.funcionariosToolStripMenuItem3.Size = new System.Drawing.Size(142, 22);
+            this.funcionariosToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.funcionariosToolStripMenuItem3.Text = "Funcionarios";
             this.funcionariosToolStripMenuItem3.Click += new System.EventHandler(this.funcionariosToolStripMenuItem3_Click);
             // 
             // jogosToolStripMenuItem3
             // 
             this.jogosToolStripMenuItem3.Name = "jogosToolStripMenuItem3";
-            this.jogosToolStripMenuItem3.Size = new System.Drawing.Size(142, 22);
+            this.jogosToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.jogosToolStripMenuItem3.Text = "Jogos";
+            this.jogosToolStripMenuItem3.Click += new System.EventHandler(this.jogosToolStripMenuItem3_Click);
             // 
             // clientesToolStripMenuItem2
             // 
             this.clientesToolStripMenuItem2.Name = "clientesToolStripMenuItem2";
-            this.clientesToolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
+            this.clientesToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem2.Text = "Clientes";
             this.clientesToolStripMenuItem2.Click += new System.EventHandler(this.clientesToolStripMenuItem2_Click);
             // 
@@ -242,6 +245,12 @@
             this.vendasToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem3.Text = "Vendas";
             this.vendasToolStripMenuItem3.Click += new System.EventHandler(this.vendasToolStripMenuItem3_Click);
+            // 
+            // backupToolStripMenuItem
+            // 
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backupToolStripMenuItem.Text = "Backup";
             // 
             // menuStrip1
             // 
@@ -255,12 +264,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // backupToolStripMenuItem
-            // 
-            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.backupToolStripMenuItem.Text = "Backup";
             // 
             // FormPrincipal
             // 

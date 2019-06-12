@@ -100,6 +100,24 @@
     <Compile Include="Forms\Jogo\CadJogo.Designer.cs">
       <DependentUpon>CadJogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Jogo\ExcJogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Jogo\ExcJogo.Designer.cs">
+      <DependentUpon>ExcJogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Jogo\ListaJogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Jogo\ListaJogo.Designer.cs">
+      <DependentUpon>ListaJogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Jogo\UpdateJogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Jogo\UpdateJogo.Designer.cs">
+      <DependentUpon>UpdateJogo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Plataformas\CadPlataforma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +211,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Jogo\CadJogo.resx">
       <DependentUpon>CadJogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Jogo\ExcJogo.resx">
+      <DependentUpon>ExcJogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Jogo\ListaJogo.resx">
+      <DependentUpon>ListaJogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Jogo\UpdateJogo.resx">
+      <DependentUpon>UpdateJogo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Plataformas\CadPlataforma.resx">
       <DependentUpon>CadPlataforma.cs</DependentUpon>
