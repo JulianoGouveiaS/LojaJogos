@@ -1,4 +1,5 @@
 ﻿using LojadeJogo.Forms.Clientes;
+using LojadeJogo.Forms.Firebase;
 using LojadeJogo.Forms.Jogo;
 using LojadeJogo.Forms.Jogo.Graficos;
 using LojadeJogo.Forms.Plataformas;
@@ -196,6 +197,14 @@ namespace LojadeJogo
         {
 
             nomeXplataforma form = new nomeXplataforma();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void firebaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            teste form = new teste();
             form.MdiParent = this;
             form.Show();
         }

@@ -31,7 +31,6 @@ namespace LojadeJogo.Forms.Vendas.Graficos
                 while (myDataReader.Read())
                 {
                     this.chart1.Series["Vendas"].Points.AddXY(myDataReader.GetString("Descricao"), myDataReader.GetDouble("Valor_Total"));
-
                 }
             }
             catch (Exception ex)

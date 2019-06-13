@@ -16,5 +16,10 @@ namespace LojadeJogo.Forms.Plataformas.Relatorio
         {
             InitializeComponent();
         }
+
+        private void RelatorioPlataformas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
