@@ -8,17 +8,17 @@ namespace LojadeJogo.Domain
 {
     public class Jogo
     {
-        private int id;
-        private int idPlataforma;
-        private double preco;
+        private string id;
+        private string idPlataforma;
+        private string preco;
         private string nome;
 
-        public int Id
+        public string Id
         {
             get { return id; }
             set { id = value; }
         }
-        public int IdPlataforma
+        public string IdPlataforma
         {
             get { return idPlataforma; }
             set { idPlataforma = value; }
@@ -29,7 +29,7 @@ namespace LojadeJogo.Domain
             set { nome = value; }
         }
 
-        public double Preco
+        public string Preco
         {
             get { return preco; }
             set { preco = value; }

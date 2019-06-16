@@ -45,13 +45,18 @@ namespace LojadeJogo.Forms.Jogo
             Domain.Jogo jogoDomain = new Domain.Jogo();
 
             jogoDomain.Nome = txt_nome.Text;
-            jogoDomain.Preco = double.Parse(txt_preco.Text.ToString());
-            jogoDomain.IdPlataforma = int.Parse(comboBox_plataforma.SelectedValue.ToString());
+            jogoDomain.Preco = txt_preco.Text.ToString();
+            jogoDomain.IdPlataforma = comboBox_plataforma.SelectedValue.ToString();
 
             jogoDAO.Salvar(jogoDomain);
             
 
             
+        }
+
+        private void comboBox_plataforma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

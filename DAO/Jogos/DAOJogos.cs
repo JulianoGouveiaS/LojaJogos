@@ -7,103 +7,100 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using LojadeJogo.Domain;
+using LojadeJogo.Forms.Firebase;
+using LojadeJogo.DAO.Plataformas;
 
 namespace LojadeJogo.DAO.Jogos
 {
     class DAOJogos
     {
         ConnectionFactory connection = new ConnectionFactory();
-        
-        public void Salvar(Jogo jogo)
+        DaoPlataformas dao = new DaoPlataformas();
+        IFirebaseClient client;
+
+        public async void Salvar(Jogo jogo)
         {
             try
             {
-                connection.Conectar();
-                
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection.getConnection();
-                cmd.CommandText = "INSERT INTO jogos(nome, preco, idPlataformas) VALUES(?nome, ?preco, ?idPlataformas)";
-                cmd.Parameters.Add("?nome", MySqlDbType.VarChar).Value = jogo.Nome;
-                cmd.Parameters.Add("?preco", MySqlDbType.Double).Value = jogo.Preco;
-                cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.IdPlataforma;
-                cmd.ExecuteNonQuery(); 
-                MessageBox.Show("Salvo com sucesso");
-            } catch(Exception ex)
-            { 
+                this.client = connection.getClient();
 
-                MessageBox.Show(ex.StackTrace);
-                MessageBox.Show("Nao deu certo a conexao!!");
+            FirebaseResponse resp = await client.GetTaskAsync("Counter/countJogos");
 
-            }
-            finally
+            Counter_class get = resp.ResultAs<Counter_class>();
+
+            var jogo2 = new Jogo
             {
-               connection.Close();
+                Id = (Convert.ToInt32(get.cnt) + 1).ToString(),
+                Nome = jogo.Nome,
+                IdPlataforma = jogo.IdPlataforma,
+                Preco = jogo.Preco
+            };
+
+            SetResponse response = await client.SetTaskAsync("Information/Jogos/" + jogo2.Id, jogo2);
+
+            Jogo result = response.ResultAs<Jogo>();
+
+            MessageBox.Show(result.Nome + " enviado com sucesso");
+
+
+            var obj = new Counter_class
+            {
+                cnt = jogo2.Id
+            };
+
+            SetResponse response1 = await client.SetTaskAsync("Counter/countJogos", obj);
+        }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Nao deu certo o inesrt!!");
             }
             
         }
-        public Jogo buscarPorId(int id)
+     
+        public async void BuscarPorId(string id, TextBox txtid, TextBox txtnome, ComboBox cbplat, TextBox txtpreco)
         {
-            connection.Conectar();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = connection.getConnection();
-            cmd.CommandText = "SELECT * FROM jogos WHERE idJogos = ?id";
-            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
-            MySqlDataReader reader = cmd.ExecuteReader();
-            Jogo jogoEncontrado = new Jogo();
+            this.client = connection.getClient();
+            FirebaseResponse response = await client.GetTaskAsync("Information/Jogos/" + id);
 
-            while (reader.Read())
-            {
-                jogoEncontrado.Id = int.Parse(reader["idJogos"].ToString());
-                jogoEncontrado.IdPlataforma = int.Parse(reader["idPlataformas"].ToString());
-                jogoEncontrado.Nome = reader["nome"].ToString();
-                jogoEncontrado.Preco = double.Parse(reader["preco"].ToString());
-            }
+            Jogo obj = response.ResultAs<Jogo>();
 
-            reader.Close();
-            connection.Close();
-            return jogoEncontrado;
+        //    int idEscolhido = int.Parse(cmbPlataformas.SelectedValue.ToString());
+          //  Plataforma plataformaEscolhida = new Plataforma();
+            //plataformaEscolhida = dao.buscarPorId(idEscolhido);
 
-        }
-        public DataTable lista()
-        {
-            ConnectionFactory connection = new ConnectionFactory();
-            connection.Conectar();
-            MySqlCommand cmd = new MySqlCommand();
 
-            DataTable data = new DataTable("jogos");
-            cmd.Connection = connection.getConnection();
-            cmd.CommandText = "SELECT * FROM jogos ORDER BY idJogos";
-            data.Load(cmd.ExecuteReader());
-            return data;
+            txtid.Text = obj.Id;
+            txtnome.Text = obj.Nome;
+            txtpreco.Text = obj.Preco;
+
         }
 
 
-        public void Excluir(Jogo jogo)
+        public async void Excluir(string id)
         {
             try
-            { 
-            connection.Conectar();
-
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = connection.getConnection();
-
-            cmd.CommandText = "DELETE FROM jogos WHERE idJogos = ?id";
-            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = jogo.Id;
-            MySqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            MessageBox.Show("Excluido com sucesso");
-
-            }
-            catch (MySqlException ex)
             {
-
-                MessageBox.Show(ex.StackTrace);
-                MessageBox.Show("Nao deu certo a conexao!!");
-
+                this.client = connection.getClient();
+                FirebaseResponse response = await client.DeleteTaskAsync("Information/Jogos/" + id);
+            }
+            catch (Exception ex)
+            {
+                //  MessageBox.Show(ex.Message);
             }
             finally
             {
-                connection.Close();
+                FirebaseResponse resp = await client.GetTaskAsync("Counter/countJogos");
+
+                Counter_class get = resp.ResultAs<Counter_class>();
+                var obj = new Counter_class
+                {
+                    cnt = (Convert.ToInt32(get.cnt) - 1).ToString()
+                };
+                SetResponse response1 = await client.SetTaskAsync("Counter/countJogos", obj);
+
             }
 
 
@@ -111,34 +108,20 @@ namespace LojadeJogo.DAO.Jogos
 
         }
 
-        public void Editar(Jogo jogo)
+        public async void Editar(Jogo jogo)
         {
 
-            try
-            {
-                connection.Conectar();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection.getConnection();
-                cmd.CommandText = "UPDATE jogos SET nome = ?nome, preco = ?preco, idPlataformas = ?idPlataformas where idJogos = ?idJogos";
-                cmd.Parameters.Add("?nome", MySqlDbType.VarString).Value = jogo.Nome;
-                cmd.Parameters.Add("?preco", MySqlDbType.Double).Value = jogo.Preco;
-                cmd.Parameters.Add("?idPlataformas", MySqlDbType.Int32).Value = jogo.IdPlataforma;
-                cmd.Parameters.Add("?idJogos", MySqlDbType.Int32).Value = jogo.Id;
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Editado com sucesso!!");
+            FirebaseResponse resp = await client.GetTaskAsync("Information/Jogos/" + jogo.Id);
 
-            }
-            catch (MySqlException ex)
+            Jogo get = resp.ResultAs<Jogo>();
+            var obj = new Jogo
             {
-
-                MessageBox.Show(ex.StackTrace);
-                MessageBox.Show("Nao deu certo a conexao!!");
-
-            }
-            finally
-            {
-                connection.Close();
-            }
+                Id = jogo.Id,
+                Nome = jogo.Nome,
+                Preco = jogo.Preco,
+                IdPlataforma = jogo.IdPlataforma
+            };
+            SetResponse response1 = await client.SetTaskAsync("Information/Jogos/" + jogo.Id, obj);
         }
 
         public DataTable RightJoinLista()

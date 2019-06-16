@@ -23,7 +23,7 @@ namespace LojadeJogo.Forms.Vendas
             InitializeComponent();
 
          //   utils.preencherCombo(cb_cliente, daoC.lista(), "idClientes", "nome");
-            utils.preencherCombo(cb_jogo, daoJ.lista(), "idJogos", "nome");
+          //  utils.preencherCombo(cb_jogo, daoJ.lista(), "idJogos", "nome");
          //   utils.preencherCombo(cb_funcionario, daoF.lista(), "idFuncionarios", "nome");
         }
 
@@ -43,9 +43,9 @@ namespace LojadeJogo.Forms.Vendas
         private void cb_jogo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_jogo.SelectedValue.ToString() != "System.Data.DataRowView") { 
-            int indexJogoSelecionado = int.Parse(cb_jogo.SelectedValue.ToString());
+            string indexJogoSelecionado = cb_jogo.SelectedValue.ToString();
             Domain.Jogo jogoEscolhido = new Domain.Jogo();
-            jogoEscolhido = daoJ.buscarPorId(indexJogoSelecionado);
+          //  jogoEscolhido = daoJ.buscarPorId(indexJogoSelecionado);
             lbl_total.Text = jogoEscolhido.Preco.ToString();
         }
         }

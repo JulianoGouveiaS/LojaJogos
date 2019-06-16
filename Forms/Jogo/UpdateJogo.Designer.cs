@@ -32,7 +32,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_preco = new System.Windows.Forms.MaskedTextBox();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
@@ -40,6 +39,7 @@
             this.comboBox_jogo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_escolher = new System.Windows.Forms.Button();
+            this.txt_Preco = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboBox_plataforma
@@ -76,13 +76,6 @@
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "Jogo";
-            // 
-            // txt_preco
-            // 
-            this.txt_preco.Location = new System.Drawing.Point(128, 160);
-            this.txt_preco.Name = "txt_preco";
-            this.txt_preco.Size = new System.Drawing.Size(441, 20);
-            this.txt_preco.TabIndex = 7;
             // 
             // txt_nome
             // 
@@ -125,6 +118,7 @@
             this.comboBox_jogo.Name = "comboBox_jogo";
             this.comboBox_jogo.Size = new System.Drawing.Size(352, 21);
             this.comboBox_jogo.TabIndex = 15;
+            this.comboBox_jogo.SelectedIndexChanged += new System.EventHandler(this.comboBox_jogo_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -145,11 +139,19 @@
             this.btn_escolher.UseVisualStyleBackColor = true;
             this.btn_escolher.Click += new System.EventHandler(this.btn_escolher_Click);
             // 
+            // txt_Preco
+            // 
+            this.txt_Preco.Location = new System.Drawing.Point(128, 163);
+            this.txt_Preco.Name = "txt_Preco";
+            this.txt_Preco.Size = new System.Drawing.Size(441, 20);
+            this.txt_Preco.TabIndex = 18;
+            // 
             // UpdateJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txt_Preco);
             this.Controls.Add(this.btn_escolher);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox_jogo);
@@ -160,7 +162,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_preco);
             this.Controls.Add(this.txt_nome);
             this.Name = "UpdateJogo";
             this.Text = "UpdateJogo";
@@ -175,7 +176,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox txt_preco;
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_id;
@@ -183,5 +183,6 @@
         private System.Windows.Forms.ComboBox comboBox_jogo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_escolher;
+        private System.Windows.Forms.TextBox txt_Preco;
     }
 }

@@ -87,6 +87,7 @@
             this.comboBox_plataforma.Name = "comboBox_plataforma";
             this.comboBox_plataforma.Size = new System.Drawing.Size(441, 21);
             this.comboBox_plataforma.TabIndex = 5;
+            this.comboBox_plataforma.SelectedIndexChanged += new System.EventHandler(this.comboBox_plataforma_SelectedIndexChanged);
             // 
             // btn_adicionar
             // 

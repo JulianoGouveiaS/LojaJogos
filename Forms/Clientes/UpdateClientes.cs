@@ -38,7 +38,6 @@ namespace LojadeJogo.Forms.Clientes
         private void button1_Click(object sender, EventArgs e)
         {
             string idEscolhido = cmbClientes.SelectedValue.ToString();
-            Cliente clienteEscolhido = new Cliente();
 
             dao.BuscarPorId(idEscolhido, txtId, txtNome, txt_tel);
           

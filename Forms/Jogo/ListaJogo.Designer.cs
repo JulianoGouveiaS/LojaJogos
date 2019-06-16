@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView_jogos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_jogos)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView_jogos
+            // dataGridView1
             // 
-            this.dataGridView_jogos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_jogos.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView_jogos.Name = "dataGridView_jogos";
-            this.dataGridView_jogos.Size = new System.Drawing.Size(695, 228);
-            this.dataGridView_jogos.TabIndex = 0;
-            this.dataGridView_jogos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_jogos_CellContentClick);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(776, 426);
+            this.dataGridView1.TabIndex = 1;
             // 
             // ListaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 228);
-            this.Controls.Add(this.dataGridView_jogos);
+            this.ClientSize = new System.Drawing.Size(804, 446);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "ListaJogo";
             this.Text = "ListaJogo";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_jogos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView_jogos;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
