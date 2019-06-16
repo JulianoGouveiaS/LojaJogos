@@ -141,7 +141,34 @@ namespace LojadeJogo.DAO.Jogos
             }
         }
 
-       
+        public DataTable RightJoinLista()
+        {
+            DataTable tabela = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                connection.Conectar();
+                cmd.Connection = connection.getConnection();
+                cmd.CommandText = "SELECT j.nome AS Jogo, j.preco AS Preco, p.nome AS Plataforma FROM jogos j INNER JOIN plataformas p ON j.idPlataformas = p.idPlataformas";
+                tabela.Load(cmd.ExecuteReader());
+                // MessageBox.Show("Conexao feita com sucesso");
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+
+            }
+            finally
+            {
+
+                connection.Close();
+            }
+
+            return tabela;
+
+        }
+
 
     }
 }

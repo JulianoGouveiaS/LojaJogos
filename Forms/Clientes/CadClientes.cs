@@ -25,7 +25,7 @@ namespace LojadeJogo.Forms.Clientes
             DAOClientes dao = new DAOClientes();
             Cliente cliente = new Cliente();
             cliente.Nome = txt_Nome.Text;
-            cliente.Telefone = Convert.ToInt64(txt_Tel.Text);
+            cliente.Telefone = txt_Tel.Text;
             dao.salvar(cliente);
         }
     }

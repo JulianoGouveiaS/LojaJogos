@@ -57,13 +57,13 @@ namespace LojadeJogo.Forms.Vendas
             Venda vendaEscolhida = new Venda();
             vendaEscolhida = daoV.buscarPorId(idEscolhido);
 
-            utils.preencherCombo(cb_clientes, daoC.lista(), "idClientes", "nome");
+          //  utils.preencherCombo(cb_clientes, daoC.lista(), "idClientes", "nome");
             cb_clientes.SelectedValue = vendaEscolhida.IdCliente;
 
-            utils.preencherCombo(cb_funcionarios, daoF.lista(), "idFuncionarios", "nome");
+        //    utils.preencherCombo(cb_funcionarios, daoF.lista(), "idFuncionarios", "nome");
             cb_funcionarios.SelectedValue = vendaEscolhida.IdFuncionario;
 
-            utils.preencherCombo(cb_jogo, daoJ.lista(), "idJogos", "nome");
+       //     utils.preencherCombo(cb_jogo, daoJ.lista(), "idJogos", "nome");
             cb_jogo.SelectedValue = vendaEscolhida.IdJogo;
 
             txtDescricao.Text = vendaEscolhida.Descricao;

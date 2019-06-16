@@ -73,6 +73,7 @@
             // 
             // cadastrosToolStripMenuItem
             // 
+
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plataformasToolStripMenuItem,
             this.funcionariosToolStripMenuItem,
@@ -241,6 +242,7 @@
             // 
             // jogosToolStripMenuItem3
             // 
+
             this.jogosToolStripMenuItem3.Name = "jogosToolStripMenuItem3";
             this.jogosToolStripMenuItem3.Size = new System.Drawing.Size(142, 22);
             this.jogosToolStripMenuItem3.Text = "Jogos";
@@ -389,6 +391,7 @@
         private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem jogosToolStripMenuItem1;
+        
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem atualizarToolStripMenuItem;
@@ -400,7 +403,11 @@
         private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem plataformasToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem3;
+
+
         private System.Windows.Forms.ToolStripMenuItem jogosToolStripMenuItem3;
+
+
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem3;
         private System.Windows.Forms.MenuStrip menuStrip1;

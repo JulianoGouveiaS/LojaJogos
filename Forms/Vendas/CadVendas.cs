@@ -22,9 +22,9 @@ namespace LojadeJogo.Forms.Vendas
         {
             InitializeComponent();
 
-            utils.preencherCombo(cb_cliente, daoC.lista(), "idClientes", "nome");
+         //   utils.preencherCombo(cb_cliente, daoC.lista(), "idClientes", "nome");
             utils.preencherCombo(cb_jogo, daoJ.lista(), "idJogos", "nome");
-            utils.preencherCombo(cb_funcionario, daoF.lista(), "idFuncionarios", "nome");
+         //   utils.preencherCombo(cb_funcionario, daoF.lista(), "idFuncionarios", "nome");
         }
 
         private void btn_efetuar_Click(object sender, EventArgs e)

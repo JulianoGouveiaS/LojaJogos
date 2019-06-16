@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ namespace LojadeJogo
     class ConnectionFactory
     {
         MySqlConnection connection;
+        IFirebaseClient client;
 
         //Fazer conexao com banco de dados
         public void Conectar()
@@ -24,10 +27,26 @@ namespace LojadeJogo
                 connection = new MySqlConnection("datasource=127.0.0.1;port=3306;database=lojadejogos;username=root;password=admin");
 
                 connection.Open();
-            } catch(Exception ex)
+            } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+       
+
+        public IFirebaseClient getClient() {
+
+            IFirebaseConfig config = new FirebaseConfig
+            {
+                AuthSecret = "sVHBJ1TEcUkTCyWYwT30UDo5O8LAtuxbeGhpEpRb",
+                BasePath = "https://loja-jogos-68e8d.firebaseio.com/"
+            };
+
+            client = new FireSharp.FirebaseClient(config);
+
+            return client;
+
         }
 
         //Pegar conexao com banco de dados

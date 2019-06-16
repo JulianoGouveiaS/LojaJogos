@@ -8,25 +8,8 @@ namespace LojadeJogo.Domain
 {
     class Cliente
     {
-        private int id;
-        private Int64 telefone;
-        private string nome;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-        public string Nome
-        {
-            get { return nome; }
-            set { nome = value; }
-        }
-
-        public Int64 Telefone
-        {
-            get { return telefone; }
-            set { telefone = value; }
-        }
+        public string Id { get; set; }
+        public string Nome { get; set; }
+        public string Telefone { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace LojadeJogo
             DAOFuncionarios dao = new DAOFuncionarios();
             Funcionario func = new Funcionario();
             func.Nome = txt_Nome.Text;
-            func.Salario = Convert.ToInt32(txt_Salario.Text);
+            func.Salario = txt_Salario.Text;
             dao.salvar(func);
         }
     }

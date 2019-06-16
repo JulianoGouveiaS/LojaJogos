@@ -1,4 +1,5 @@
 ﻿using LojadeJogo.DAO.Clientes;
+using LojadeJogo.DAO.Jogos;
 using LojadeJogo.Utils;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,17 @@ namespace LojadeJogo.Forms.Jogo
 {
     public partial class ListaJogo : Form
     {
+        Utilitarios utilitarios = new Utilitarios();
+        DAOClientes daoClientes = new DAOClientes();
+        DAOJogos daoJ = new DAOJogos();
         public ListaJogo()
         {
             InitializeComponent();
 
-            utilitarios.lista("jogos", dataGridView_jogos, "idJogos");
+            // utilitarios.lista("jogos", dataGridView_jogos, "idJogos");
+    
+            dataGridView_jogos.DataSource = daoJ.RightJoinLista();
         }
-        Utilitarios utilitarios = new Utilitarios();
-        DAOClientes daoClientes = new DAOClientes();
         
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
