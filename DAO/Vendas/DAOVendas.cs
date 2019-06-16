@@ -1,4 +1,10 @@
-﻿using LojadeJogo.Domain;
+﻿using FireSharp.Interfaces;
+using FireSharp.Response;
+using LojadeJogo.DAO.Clientes;
+using LojadeJogo.DAO.Jogos;
+using LojadeJogo.DAO.Plataformas;
+using LojadeJogo.Domain;
+using LojadeJogo.Forms.Firebase;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,104 +20,251 @@ namespace LojadeJogo.DAO.Vendas
     {
 
         ConnectionFactory connection = new ConnectionFactory();
+        DAOJogos daoJogos = new DAOJogos();
+        DAOClientes daoClientes = new DAOClientes();
+        DAOFuncionarios daoFunc= new DAOFuncionarios();
+        IFirebaseClient client;
 
 
-        public void salvar(Venda venda)
+        public async void salvar(Venda venda)
         {
 
             try
             {
-                connection.Conectar();
-                // connectbd();
-                MySqlCommand cmd = new MySqlCommand();
+                this.client = connection.getClient();
 
-                cmd.Connection = connection.getConnection();
-                cmd.CommandText = "INSERT INTO vendas(descricao, valor, idClientes, idJogos, idFuncionarios) VALUES(?desc, ?vl, ?idC, ?idJ, ?idF)";
-                cmd.Parameters.Add("?desc", MySqlDbType.VarChar).Value = venda.Descricao;
-                cmd.Parameters.Add("?vl", MySqlDbType.Double).Value = venda.Valor;
-                cmd.Parameters.Add("?idC", MySqlDbType.Int32).Value = venda.IdCliente;
-                cmd.Parameters.Add("?idJ", MySqlDbType.Int32).Value = venda.IdJogo;
-                cmd.Parameters.Add("?idF", MySqlDbType.Int32).Value = venda.IdFuncionario;
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Salvo com sucesso");
+                FirebaseResponse resp = await client.GetTaskAsync("Counter/countVendas");
 
+                Counter_class get = resp.ResultAs<Counter_class>();
+
+                var venda2 = new Venda
+                {
+                    Id = (Convert.ToInt32(get.cnt) + 1).ToString(),
+                    Descricao = venda.Descricao,
+                    IdCliente = venda.IdCliente,
+                    IdFuncionario = venda.IdFuncionario,
+                    IdJogo = venda.IdJogo,
+                    Valor = venda.Valor,
+                };
+
+                SetResponse response = await client.SetTaskAsync("Information/Vendas/" + venda2.Id, venda2);
+
+                Venda result = response.ResultAs<Venda>();
+
+                MessageBox.Show("Venda enviado com sucesso");
+
+
+                var obj = new Counter_class
+                {
+                    cnt = venda2.Id
+                };
+
+                SetResponse response1 = await client.SetTaskAsync("Counter/countVendas", obj);
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Nao deu certo a conexao!!");
+                MessageBox.Show("Nao deu certo o inesrt!!");
+            }
+        }
+
+        public async void Excluir(string id)
+        {
+            try
+            {
+                this.client = connection.getClient();
+                FirebaseResponse response = await client.DeleteTaskAsync("Information/Vendas/" + id);
+            }
+            catch (Exception ex)
+            {
+                //  MessageBox.Show(ex.Message);
             }
             finally
             {
-                connection.Close();
+                FirebaseResponse resp = await client.GetTaskAsync("Counter/countVendas");
+
+                Counter_class get = resp.ResultAs<Counter_class>();
+                var obj = new Counter_class
+                {
+                    cnt = (Convert.ToInt32(get.cnt) - 1).ToString()
+                };
+                SetResponse response1 = await client.SetTaskAsync("Counter/countVendas", obj);
+
             }
-        }
 
-        public void Excluir(int id)
-        {
-            connection.Conectar();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = connection.getConnection();
-            cmd.CommandText = "DELETE from vendas WHERE idVendas = ?id";
-            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
-            MySqlDataReader leitor = cmd.ExecuteReader();
-            leitor.Read();
 
         }
 
-        public void Editar(Venda venda)
+        public async void Editar(Venda venda)
         {
-            connection.Conectar();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = connection.getConnection();
-            cmd.CommandText = "UPDATE vendas SET descricao = ?desc, valor = ?vl, idClientes = ?idC, idJogos = ?idJ, idFuncionarios = ?idF WHERE idVendas = ?id";
-            cmd.Parameters.Add("?id", MySqlDbType.VarChar).Value = venda.Id;
-            cmd.Parameters.Add("?desc", MySqlDbType.VarChar).Value = venda.Descricao;
-            cmd.Parameters.Add("?vl", MySqlDbType.Double).Value = venda.Valor;
-            cmd.Parameters.Add("?idC", MySqlDbType.Int32).Value = venda.IdCliente;
-            cmd.Parameters.Add("?idJ", MySqlDbType.Int32).Value = venda.IdJogo;
-            cmd.Parameters.Add("?idF", MySqlDbType.Int32).Value = venda.IdFuncionario;
-            cmd.ExecuteNonQuery();
+            FirebaseResponse resp = await client.GetTaskAsync("Information/Vendas/" + venda.Id);
 
-        }
-
-        public DataTable lista()
-        {
-            ConnectionFactory connection = new ConnectionFactory();
-            connection.Conectar();
-            MySqlCommand cmd = new MySqlCommand();
-
-            DataTable data = new DataTable("vendas");
-            cmd.Connection = connection.getConnection();
-            cmd.CommandText = "SELECT idVendas, descricao FROM vendas ORDER BY idVendas";
-            data.Load(cmd.ExecuteReader());
-            return data;
-        }
-
-        public Venda buscarPorId(int id)
-        {
-            connection.Conectar();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = connection.getConnection();
-            cmd.CommandText = "SELECT * FROM vendas WHERE idVendas = ?id";
-            cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = id;
-            MySqlDataReader reader = cmd.ExecuteReader();
-            Venda vendaEncontrada = new Venda();
-
-            while (reader.Read())
+            Venda get = resp.ResultAs<Venda>();
+            var obj = new Venda
             {
-                vendaEncontrada.Id = int.Parse(reader["idVendas"].ToString());
-                vendaEncontrada.Descricao = reader["descricao"].ToString();
-                vendaEncontrada.Valor = double.Parse(reader["valor"].ToString());
-                vendaEncontrada.IdCliente = int.Parse(reader["idClientes"].ToString());
-                vendaEncontrada.IdJogo = int.Parse(reader["idJogos"].ToString());
-                vendaEncontrada.IdFuncionario = int.Parse(reader["idFuncionarios"].ToString());
+                Descricao = venda.Descricao,
+                Id = venda.Id,
+                Valor = venda.Valor,
+                IdJogo = venda.IdJogo,
+                IdFuncionario = venda.IdFuncionario,
+                IdCliente = venda.IdCliente
+            
+            };
+            SetResponse response1 = await client.SetTaskAsync("Information/Vendas/" + venda.Id, obj);
+            MessageBox.Show("Sucesso");
 
+        }
+
+        public async void BuscarPorId(string id, TextBox txtDesc, TextBox txtId, TextBox txtValor, ComboBox cbJogo, ComboBox cbFunc, ComboBox cbCli)
+        {
+            this.client = connection.getClient();
+            FirebaseResponse response = await client.GetTaskAsync("Information/Vendas/" + id);
+
+            Venda obj = response.ResultAs<Venda>();
+            daoClientes.preencheComboById(cbCli, obj.IdCliente);
+            daoFunc.preencheComboById(cbFunc, obj.IdFuncionario);
+            daoJogos.preencheComboById(cbJogo, obj.IdJogo);
+
+
+            txtDesc.Text = obj.Descricao;
+            txtId.Text = obj.Id;
+            txtValor.Text = obj.Valor;
+
+        }
+
+
+        public async void preencheCombo(ComboBox cmb)
+        {
+
+
+            IFirebaseClient client;
+
+            ConnectionFactory connection = new ConnectionFactory();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("id");
+            dt.Columns.Add("descricao");
+            dt.Columns.Add("valor");
+            dt.Columns.Add("cliente");
+            dt.Columns.Add("jogo");
+
+
+            client = connection.getClient();
+            //parametro pro while
+            int i = 0;
+
+            //limpa a tabela pro refresh, pra nao ficar acumulando
+            dt.Rows.Clear();
+
+            //pega a referencia pro contador
+            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countVendas");
+
+            //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
+            Counter_class obj1 = resp1.ResultAs<Counter_class>();
+
+            //criei a var cnt e coloquei o valor de contagem que busquei do firebase
+            int cnt = Convert.ToInt32(obj1.cnt);
+
+            while (true)
+            {
+                if (i == cnt)
+                {
+                    break;
+                }
+                i++;
+                try
+                {
+
+                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Vendas/" + i);
+                    Domain.Venda obj2 = resp2.ResultAs<Domain.Venda>();
+
+                    DataRow row = dt.NewRow();
+                    row["id"] = obj2.Id;
+                    row["descricao"] = obj2.Descricao;
+                    row["valor"] = obj2.Valor;
+                    row["cliente"] = obj2.IdCliente;
+                    row["jogo"] = obj2.IdJogo;
+
+                    dt.Rows.Add(row);
+
+                }
+                catch (Exception ex)
+                {
+                    //    MessageBox.Show(ex.Message);
+                }
             }
 
-            reader.Close();
-            connection.Close();
-            return vendaEncontrada;
+            cmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb.DataSource = dt;
+            cmb.ValueMember = "id";
+            cmb.DisplayMember = "descricao";
+            cmb.Update();
+        }
 
+        public async void preencheComboById(ComboBox cmb, string id)
+        {
+
+
+            IFirebaseClient client;
+
+            ConnectionFactory connection = new ConnectionFactory();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("id");
+            dt.Columns.Add("descricao");
+            dt.Columns.Add("valor");
+            dt.Columns.Add("cliente");
+            dt.Columns.Add("jogo");
+            client = connection.getClient();
+            //parametro pro while
+            int i = 0;
+
+            //limpa a tabela pro refresh, pra nao ficar acumulando
+            dt.Rows.Clear();
+
+            //pega a referencia pro contador
+            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countVendas");
+
+            //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
+            Counter_class obj1 = resp1.ResultAs<Counter_class>();
+
+            //criei a var cnt e coloquei o valor de contagem que busquei do firebase
+            int cnt = Convert.ToInt32(obj1.cnt);
+
+            while (true)
+            {
+                if (i == cnt)
+                {
+                    break;
+                }
+                i++;
+                try
+                {
+
+                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Vendas/" + i);
+                    Venda obj2 = resp2.ResultAs<Venda>();
+
+                    DataRow row = dt.NewRow();
+                    row["id"] = obj2.Id;
+                    row["descricao"] = obj2.Descricao;
+                    row["valor"] = obj2.Valor;
+                    row["cliente"] = obj2.IdCliente;
+                    row["jogo"] = obj2.IdJogo;
+
+                    dt.Rows.Add(row);
+
+                }
+                catch (Exception ex)
+                {
+                    //    MessageBox.Show(ex.Message);
+                }
+            }
+
+            cmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb.DataSource = dt;
+            cmb.ValueMember = "id";
+            cmb.DisplayMember = "nome";
+            cmb.SelectedValue = id;
+            cmb.Update();
         }
 
     }

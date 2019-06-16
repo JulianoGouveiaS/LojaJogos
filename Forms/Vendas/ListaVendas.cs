@@ -1,4 +1,7 @@
-﻿using LojadeJogo.Utils;
+﻿using FireSharp.Interfaces;
+using FireSharp.Response;
+using LojadeJogo.Forms.Firebase;
+using LojadeJogo.Utils;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,40 +17,85 @@ namespace LojadeJogo.Forms.Vendas
 {
     public partial class ListaVendas : Form
     {
+        ConnectionFactory connection = new ConnectionFactory();
+        IFirebaseClient client;
         Utilitarios utils = new Utilitarios();
         DataSet conexaoDataset = new DataSet();
 
         public ListaVendas()
         {
             InitializeComponent();
-            this.lista("vendas", dataGridView1, "idVendas");
+            string[] colunas = { "id", "descricao", "valor", "cliente", "jogo", "funcionario" };
+            this.lista(dataGridView1, colunas);
         }
-        public void lista(string tabela, DataGridView dataGrid, string VarOrdenacao)
-        {
-            ConnectionFactory connection = new ConnectionFactory();
-            try
-            {
-                DataSet conexaoDataset = new DataSet();
-                connection.Conectar();
-                MySqlDataAdapter conexaoAdapter = new MySqlDataAdapter("" +
-                    "SELECT V.descricao as Descricao, V.valor as Valor_Total, C.nome as Cliente, J.nome as Jogo_Vendido, F.nome as Funcionario " +
-                    "FROM vendas as V " +
-                    "LEFT JOIN clientes as C ON V.idClientes = C.idClientes " +
-                    "LEFT JOIN funcionarios as F ON V.idFuncionarios = F.idFuncionarios " +
-                    "LEFT JOIN jogos as J ON V.idJogos = J.idJogos", connection.getConnection());
-                conexaoAdapter.Fill(conexaoDataset, tabela);
-                dataGrid.DataSource = conexaoDataset;
-                dataGrid.DataMember = tabela;
-            }
-            catch
-            {
-                MessageBox.Show("Impossível estabelecer conexão");
-                connection.Close();
-            }
-        }
+       
+
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+        public async void lista(DataGridView dataGrid, string[] colunas)
+        {
+            this.client = connection.getClient();
+            DataTable dt = new DataTable();
+            int i = 0;
+            for (i = 0; i < colunas.Count(); i++)
+            {
+                dt.Columns.Add(colunas[i]);
+            }
+
+            dataGrid.DataSource = dt;
+
+            i = 0;
+
+            dt.Rows.Clear();
+
+            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countVendas");
+
+            Counter_class obj1 = resp1.ResultAs<Counter_class>();
+
+            int cnt = Convert.ToInt32(obj1.cnt);
+
+            for (i = 0; i <= cnt; i++)
+            {
+                try
+                {
+
+                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Vendas/" + i);
+                    Domain.Venda obj2 = resp2.ResultAs<Domain.Venda>();
+
+                    DataRow row = dt.NewRow();
+                    row["id"] = obj2.Id.ToString();
+                    row["valor"] = obj2.Valor.ToString();
+                    row["descricao"] = obj2.Descricao.ToString();
+
+                    FirebaseResponse response = await client.GetTaskAsync("Information/Jogos/" + obj2.IdJogo.ToString());
+                    Domain.Jogo jogoEncontrado = response.ResultAs<Domain.Jogo>();
+
+                    row["jogo"] = jogoEncontrado.Nome;
+
+                    FirebaseResponse response2 = await client.GetTaskAsync("Information/Clientes/" + obj2.IdCliente.ToString());
+                    Domain.Cliente clienteEncontrado = response.ResultAs<Domain.Cliente>();
+
+                    row["cliente"] = clienteEncontrado.Nome;
+
+                    FirebaseResponse response3 = await client.GetTaskAsync("Information/Funcionarios/" + obj2.IdFuncionario.ToString());
+                    Funcionario funcEncontrado = response.ResultAs<Funcionario>();
+
+                    row["funcionario"] = funcEncontrado.Nome;
+                    
+                    dt.Rows.Add(row);
+
+                }
+                catch (Exception ex)
+                {
+                    // MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+
     }
 }

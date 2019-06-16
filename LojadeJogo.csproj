@@ -80,6 +80,7 @@
     <Compile Include="DAO\Vendas\DAOVendas.cs" />
     <Compile Include="Domain\Cliente.cs" />
     <Compile Include="Domain\Jogo.cs" />
+    <Compile Include="Domain\Usuario.cs" />
     <Compile Include="Domain\Venda.cs" />
     <Compile Include="Forms\Firebase\Counter_class.cs" />
     <Compile Include="Forms\Firebase\Data.cs" />
@@ -155,6 +156,18 @@
     </Compile>
     <Compile Include="Forms\Jogo\UpdateJogo.Designer.cs">
       <DependentUpon>UpdateJogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login\Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login\Registrar.Designer.cs">
+      <DependentUpon>Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Plataformas\CadPlataforma.cs">
       <SubType>Form</SubType>
@@ -276,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Jogo\UpdateJogo.resx">
       <DependentUpon>UpdateJogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login\Registrar.resx">
+      <DependentUpon>Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Plataformas\CadPlataforma.resx">
       <DependentUpon>CadPlataforma.cs</DependentUpon>

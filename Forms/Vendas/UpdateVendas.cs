@@ -27,7 +27,7 @@ namespace LojadeJogo.Forms.Vendas
         public UpdateVendas()
         {
             InitializeComponent();
-            utils.preencherCombo(cmbVendas, daoV.lista(), "idVendas", "descricao");
+            daoV.preencheCombo(cmbVendas);
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -39,38 +39,24 @@ namespace LojadeJogo.Forms.Vendas
         {
             //bttn atualizar
             Venda v = new Venda();
-            v.Id = int.Parse(txtId.Text);
+            v.Id = txtId.Text;
             v.Descricao = txtDescricao.Text;
-            v.Valor = double.Parse(txtValor.Text);
-            v.IdCliente = int.Parse(cb_clientes.SelectedValue.ToString());
-            v.IdFuncionario = int.Parse(cb_funcionarios.SelectedValue.ToString());
-            v.IdJogo = int.Parse(cb_jogo.SelectedValue.ToString());
+            v.Valor = txtValor.Text;
+            v.IdCliente = cb_clientes.SelectedValue.ToString();
+            v.IdFuncionario = cb_funcionarios.SelectedValue.ToString();
+            v.IdJogo = cb_jogo.SelectedValue.ToString();
             daoV.Editar(v);
 
-            utils.preencherCombo(cmbVendas, daoV.lista(), "idVendas", "descricao");
+            daoV.preencheCombo(cmbVendas);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //pesquisar bttn
-            int idEscolhido = int.Parse(cmbVendas.SelectedValue.ToString());
+            string idEscolhido = cmbVendas.SelectedValue.ToString();
             Venda vendaEscolhida = new Venda();
-            vendaEscolhida = daoV.buscarPorId(idEscolhido);
-
-          //  utils.preencherCombo(cb_clientes, daoC.lista(), "idClientes", "nome");
-            cb_clientes.SelectedValue = vendaEscolhida.IdCliente;
-
-        //    utils.preencherCombo(cb_funcionarios, daoF.lista(), "idFuncionarios", "nome");
-            cb_funcionarios.SelectedValue = vendaEscolhida.IdFuncionario;
-
-       //     utils.preencherCombo(cb_jogo, daoJ.lista(), "idJogos", "nome");
-            cb_jogo.SelectedValue = vendaEscolhida.IdJogo;
-
-            txtDescricao.Text = vendaEscolhida.Descricao;
-            txtValor.Text = vendaEscolhida.Valor.ToString();
-            txtId.Text = vendaEscolhida.Id.ToString();
-
-        }
+            daoV.BuscarPorId(idEscolhido, txtDescricao, txtId, txtValor, cb_jogo, cb_funcionarios, cb_clientes);
+                    }
 
         private void label7_Click(object sender, EventArgs e)
         {

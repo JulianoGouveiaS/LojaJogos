@@ -22,19 +22,19 @@ namespace LojadeJogo.Forms.Vendas
         {
             InitializeComponent();
 
-         //   utils.preencherCombo(cb_cliente, daoC.lista(), "idClientes", "nome");
-          //  utils.preencherCombo(cb_jogo, daoJ.lista(), "idJogos", "nome");
-         //   utils.preencherCombo(cb_funcionario, daoF.lista(), "idFuncionarios", "nome");
+            daoC.preencheCombo(cb_cliente);
+            daoF.preencheCombo(cb_funcionario);
+            daoJ.preencheCombo(cb_jogo);
         }
 
         private void btn_efetuar_Click(object sender, EventArgs e)
         {
             Venda v = new Venda();
             v.Descricao = txt_desc.Text;
-            v.IdCliente = int.Parse(cb_cliente.SelectedValue.ToString());
-            v.IdFuncionario = int.Parse(cb_funcionario.SelectedValue.ToString());
-            v.IdJogo = int.Parse(cb_jogo.SelectedValue.ToString());
-            v.Valor = double.Parse(lbl_total.Text);
+            v.IdCliente = cb_cliente.SelectedValue.ToString();
+            v.IdFuncionario = cb_funcionario.SelectedValue.ToString();
+            v.IdJogo = cb_jogo.SelectedValue.ToString();
+            v.Valor = lbl_total.Text;
             daoV.salvar(v);
 
 
@@ -43,11 +43,11 @@ namespace LojadeJogo.Forms.Vendas
         private void cb_jogo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_jogo.SelectedValue.ToString() != "System.Data.DataRowView") { 
-            string indexJogoSelecionado = cb_jogo.SelectedValue.ToString();
-            Domain.Jogo jogoEscolhido = new Domain.Jogo();
-          //  jogoEscolhido = daoJ.buscarPorId(indexJogoSelecionado);
-            lbl_total.Text = jogoEscolhido.Preco.ToString();
-        }
+                string indexJogoSelecionado = cb_jogo.SelectedValue.ToString();
+                Domain.Jogo jogoEscolhido = new Domain.Jogo();
+                daoJ.updateValor(indexJogoSelecionado, lbl_total);
+             
+             }
         }
 
         

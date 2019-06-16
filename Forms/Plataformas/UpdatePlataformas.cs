@@ -1,5 +1,8 @@
-﻿using LojadeJogo.DAO.Plataformas;
+﻿using FireSharp.Interfaces;
+using FireSharp.Response;
+using LojadeJogo.DAO.Plataformas;
 using LojadeJogo.Domain;
+using LojadeJogo.Forms.Firebase;
 using LojadeJogo.Utils;
 using System;
 using System.Collections.Generic;
@@ -21,7 +24,7 @@ namespace LojadeJogo.Forms.Plataformas
         public UpdatePlataformas()
         {
             InitializeComponent();
-            utils.preencherCombo(cmbPlataformas, dao.lista(), "idPlataformas", "nome");
+            dao.preencheCombo(cmbPlataformas);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,26 +34,26 @@ namespace LojadeJogo.Forms.Plataformas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int idEscolhido = int.Parse(cmbPlataformas.SelectedValue.ToString());
-            Plataforma plataformaEscolhida = new Plataforma();
-            plataformaEscolhida = dao.buscarPorId(idEscolhido);
-            txtId.Text = plataformaEscolhida.id.ToString();
-            txtNome.Text = plataformaEscolhida.Nome;
-  
+            string idEscolhido = cmbPlataformas.SelectedValue.ToString();
+
+            dao.buscarPorId(idEscolhido, txtId, txtNome);
             txtNome.Enabled = true;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Plataforma plataformaEditada = new Plataforma();
-            plataformaEditada.id = int.Parse(txtId.Text);
+            plataformaEditada.id = txtId.Text;
             plataformaEditada.Nome = txtNome.Text;
             dao.Editar(plataformaEditada);
 
-            txtId.Enabled = false;
+            dao.preencheCombo(cmbPlataformas);
+
             txtNome.Enabled = false;
-            utils.preencherCombo(cmbPlataformas, dao.lista(), "idPlataformas", "nome");
         }
+
+       
 
         private void txtNome_TextChanged(object sender, EventArgs e)
         {

@@ -27,6 +27,7 @@ namespace LojadeJogo.Forms.Jogo
         IFirebaseClient client;
         Utilitarios utils = new Utilitarios();
         DataSet conexaoDataset = new DataSet();
+        DaoPlataformas daoPlat = new DaoPlataformas();
 
         public ListaJogo()
         {
@@ -73,9 +74,7 @@ namespace LojadeJogo.Forms.Jogo
 
             int cnt = Convert.ToInt32(obj1.cnt);
 
-            MessageBox.Show(" i: " + i + " cnt: " + cnt);
-
-            for (i = 1; i == cnt; i++)
+            for (i = 0; i <= cnt; i++)
             {
                 try
                 {
@@ -84,10 +83,15 @@ namespace LojadeJogo.Forms.Jogo
                     Domain.Jogo obj2 = resp2.ResultAs<Domain.Jogo>();
 
                     DataRow row = dt.NewRow();
-                    MessageBox.Show(obj2.Id + " " + obj2.IdPlataforma + " " + obj2.Nome + " " + obj2.Preco);
+                  // MessageBox.Show(obj2.Id + " " + obj2.IdPlataforma + " " + obj2.Nome + " " + obj2.Preco);
                     row["id"] = obj2.Id.ToString();
                     row["nome"] = obj2.Nome.ToString();
-                    row["plataforma"] = obj2.IdPlataforma.ToString();
+                    
+                    FirebaseResponse response = await client.GetTaskAsync("Information/Plataformas/" + obj2.IdPlataforma.ToString());
+
+                    Plataforma plataformaEncontrada = response.ResultAs<Plataforma>();
+
+                    row["plataforma"] = plataformaEncontrada.Nome;
                     row["preco"] = obj2.Preco.ToString();
 
 
@@ -96,10 +100,15 @@ namespace LojadeJogo.Forms.Jogo
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                   // MessageBox.Show(ex.Message);
                 }
 
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

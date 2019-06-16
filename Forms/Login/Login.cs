@@ -1,5 +1,4 @@
-﻿using LojadeJogo.DAO.Plataformas;
-using LojadeJogo.Domain;
+﻿using LojadeJogo.Forms.Plataformas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LojadeJogo
+namespace LojadeJogo.Forms.Login
 {
-    public partial class CadPlataforma : Form
+    public partial class Login : Form
     {
-        public CadPlataforma()
+        public Login()
         {
             InitializeComponent();
         }
@@ -22,10 +21,12 @@ namespace LojadeJogo
         private void button1_Click(object sender, EventArgs e)
         {
 
-            DaoPlataformas dao = new DaoPlataformas();
-            Plataforma plat = new Plataforma();
-            plat.Nome = txtName.Text;
-            dao.salvar(plat);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Registrar form = new Registrar();
+            form.Show();
         }
     }
 }

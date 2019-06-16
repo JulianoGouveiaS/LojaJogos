@@ -1,4 +1,8 @@
-﻿using LojadeJogo.DAO.Plataformas;
+﻿using FireSharp.Interfaces;
+using FireSharp.Response;
+using LojadeJogo.DAO.Plataformas;
+using LojadeJogo.Domain;
+using LojadeJogo.Forms.Firebase;
 using LojadeJogo.Utils;
 using MySql.Data.MySqlClient;
 using System;
@@ -21,7 +25,7 @@ namespace LojadeJogo.Forms.Plataformas
         public ExcPlataforma()
         {
             InitializeComponent();
-            utils.preencherCombo(cmbPlat, dao.lista(), "idPlataformas", "nome");
+            dao.preencheCombo(cmbPlat);
         }
 
         private void cmbPlat_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,10 +37,12 @@ namespace LojadeJogo.Forms.Plataformas
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            int idEscolhido = int.Parse(cmbPlat.SelectedValue.ToString());
+            string idEscolhido = cmbPlat.SelectedValue.ToString();
             dao.Excluir(idEscolhido);
-            utils.preencherCombo(cmbPlat, dao.lista(), "idPlataformas", "nome");
+            dao.preencheCombo(cmbPlat);
 
         }
+
+        
     }
 }

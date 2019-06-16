@@ -20,15 +20,15 @@ namespace LojadeJogo.Forms.Vendas
         public ExcVenda()
         {
             InitializeComponent();
-            utils.preencherCombo(cmb_Vendas, dao.lista(), "idVendas", "descricao");
+            dao.preencheCombo(cmb_Vendas);
         }
 
         private void bttn_Excluir_Click(object sender, EventArgs e)
         {
-            int idEscolhido = int.Parse(cmb_Vendas.SelectedValue.ToString());
+            string idEscolhido = cmb_Vendas.SelectedValue.ToString();
             dao.Excluir(idEscolhido);
 
-            utils.preencherCombo(cmb_Vendas, dao.lista(), "idVendas", "descricao");
+            dao.preencheCombo(cmb_Vendas);
         }
     }
 }

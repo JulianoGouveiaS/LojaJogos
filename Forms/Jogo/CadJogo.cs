@@ -17,10 +17,7 @@ namespace LojadeJogo.Forms.Jogo
         public CadJogo()
         {
             InitializeComponent();
-            tabelaPlataforma = daoPlataformas.lista();
-            utils.preencherCombo(comboBox_plataforma, tabelaPlataforma, "idPlataformas", "nome");
-            
-            
+            daoPlataformas.preencheCombo(comboBox_plataforma);
             
         }
 
