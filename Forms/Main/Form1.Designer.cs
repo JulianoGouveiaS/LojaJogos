@@ -65,7 +65,6 @@
             this.valorXDescricaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vendaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.firebaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendaBindingSource1)).BeginInit();
@@ -73,63 +72,77 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-
-            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            if (adm == "0")
+            {
+                this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cientesToolStripMenuItem,
+            this.vendasToolStripMenuItem});
+                this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+                this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+                this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            }
+            else
+            {
+                this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plataformasToolStripMenuItem,
             this.funcionariosToolStripMenuItem,
             this.jogosToolStripMenuItem,
             this.cientesToolStripMenuItem,
             this.vendasToolStripMenuItem});
-            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.cadastrosToolStripMenuItem.Text = "Cadastros";
+                this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+                this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+                this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            }
             // 
             // plataformasToolStripMenuItem
             // 
             this.plataformasToolStripMenuItem.Name = "plataformasToolStripMenuItem";
-            this.plataformasToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.plataformasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.plataformasToolStripMenuItem.Text = "Plataformas";
             this.plataformasToolStripMenuItem.Click += new System.EventHandler(this.plataformasToolStripMenuItem_Click);
             // 
             // funcionariosToolStripMenuItem
             // 
             this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionariosToolStripMenuItem.Text = "Funcionarios";
             this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
             // 
             // jogosToolStripMenuItem
             // 
             this.jogosToolStripMenuItem.Name = "jogosToolStripMenuItem";
-            this.jogosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.jogosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jogosToolStripMenuItem.Text = "Jogos";
             this.jogosToolStripMenuItem.Click += new System.EventHandler(this.jogosToolStripMenuItem_Click);
             // 
             // cientesToolStripMenuItem
             // 
             this.cientesToolStripMenuItem.Name = "cientesToolStripMenuItem";
-            this.cientesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.cientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cientesToolStripMenuItem.Text = "Cientes";
             this.cientesToolStripMenuItem.Click += new System.EventHandler(this.cientesToolStripMenuItem_Click);
             // 
             // vendasToolStripMenuItem
             // 
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
             // remoçõesToolStripMenuItem
             // 
-            this.remoçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            if (adm != "0")
+            {
+                this.remoçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plataformasToolStripMenuItem1,
             this.funcionariosToolStripMenuItem1,
             this.jogosToolStripMenuItem1,
             this.clientesToolStripMenuItem,
             this.vendasToolStripMenuItem1});
-            this.remoçõesToolStripMenuItem.Name = "remoçõesToolStripMenuItem";
-            this.remoçõesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.remoçõesToolStripMenuItem.Text = "Remoções";
+                this.remoçõesToolStripMenuItem.Name = "remoçõesToolStripMenuItem";
+                this.remoçõesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+                this.remoçõesToolStripMenuItem.Text = "Remoções";
+            }
             // 
             // plataformasToolStripMenuItem1
             // 
@@ -242,7 +255,6 @@
             // 
             // jogosToolStripMenuItem3
             // 
-
             this.jogosToolStripMenuItem3.Name = "jogosToolStripMenuItem3";
             this.jogosToolStripMenuItem3.Size = new System.Drawing.Size(142, 22);
             this.jogosToolStripMenuItem3.Text = "Jogos";
@@ -275,11 +287,10 @@
             this.remoçõesToolStripMenuItem,
             this.atualizarToolStripMenuItem,
             this.listarToolStripMenuItem,
-            this.graficosToolStripMenuItem,
-            this.firebaseToolStripMenuItem});
+            this.graficosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(680, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -351,18 +362,13 @@
             // 
             this.vendaBindingSource1.DataSource = typeof(LojadeJogo.Domain.Venda);
             // 
-            // firebaseToolStripMenuItem
-            // 
-            this.firebaseToolStripMenuItem.Name = "firebaseToolStripMenuItem";
-            this.firebaseToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.firebaseToolStripMenuItem.Text = "firebase test";
-            this.firebaseToolStripMenuItem.Click += new System.EventHandler(this.firebaseToolStripMenuItem_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 749);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(680, 223);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -422,7 +428,6 @@
         private System.Windows.Forms.ToolStripMenuItem jogosToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem nomeXplataformaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem firebaseToolStripMenuItem;
     }
 }
 

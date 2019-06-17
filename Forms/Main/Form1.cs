@@ -1,4 +1,5 @@
-﻿using LojadeJogo.Forms.Clientes;
+﻿using FireSharp.Interfaces;
+using LojadeJogo.Forms.Clientes;
 using LojadeJogo.Forms.Firebase;
 using LojadeJogo.Forms.Jogo;
 using LojadeJogo.Forms.Jogo.Graficos;
@@ -21,10 +22,13 @@ namespace LojadeJogo
 {
     public partial class FormPrincipal : Form
     {
-        public FormPrincipal()
+        string adm;
+        public FormPrincipal(string isAdm)
         {
+            this.adm = isAdm;
             InitializeComponent();
         }
+
 
         private void plataformasToolStripMenuItem_Click(object sender, EventArgs e)
         {
