@@ -1,11 +1,15 @@
 ﻿using FireSharp.Interfaces;
+using FireSharp.Response;
+using LojadeJogo.Forms.Backup;
 using LojadeJogo.Forms.Clientes;
 using LojadeJogo.Forms.Firebase;
 using LojadeJogo.Forms.Jogo;
 using LojadeJogo.Forms.Jogo.Graficos;
 using LojadeJogo.Forms.Plataformas;
+using LojadeJogo.Forms.Relatorios;
 using LojadeJogo.Forms.Vendas;
 using LojadeJogo.Forms.Vendas.Graficos;
+using LojadeJogo.Utils;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -23,6 +27,10 @@ namespace LojadeJogo
     public partial class FormPrincipal : Form
     {
         string adm;
+        ConnectionFactory connection = new ConnectionFactory();
+        IFirebaseClient client;
+        Utilitarios utils = new Utilitarios();
+        DataSet conexaoDataset = new DataSet();
         public FormPrincipal(string isAdm)
         {
             this.adm = isAdm;
@@ -185,11 +193,6 @@ namespace LojadeJogo
 
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void valorXDescricaoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             valorXdescricao form = new valorXdescricao();
@@ -211,6 +214,44 @@ namespace LojadeJogo
             teste form = new teste();
             form.MdiParent = this;
             form.Show();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descricaoXValorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            valorXdescricao form = new valorXdescricao();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void relatorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vendasToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Relatorio form = new Relatorio();
+            form.MdiParent = this;
+            form.Show();
+
+        }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BackupList form = new BackupList();
+            form.MdiParent = this;
+            form.Show();
+
         }
     }
 }

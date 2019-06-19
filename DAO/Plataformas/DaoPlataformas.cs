@@ -25,7 +25,7 @@ namespace LojadeJogo.DAO.Plataformas
 
             this.client = connection.getClient();
 
-            FirebaseResponse resp = await client.GetTaskAsync("Counter/countPlataformas");
+            FirebaseResponse resp = await client.GetAsync("Counter/countPlataformas");
 
             Counter_class get = resp.ResultAs<Counter_class>();
 
@@ -35,7 +35,7 @@ namespace LojadeJogo.DAO.Plataformas
                 Nome = plataforma.Nome,
             };
 
-            SetResponse response = await client.SetTaskAsync("Information/Plataformas/" + plataforma2.Id, plataforma2);
+            SetResponse response = await client.SetAsync("Information/Plataformas/" + plataforma2.Id, plataforma2);
 
             Plataforma result = response.ResultAs<Plataforma>();
 
@@ -47,7 +47,7 @@ namespace LojadeJogo.DAO.Plataformas
                 cnt = plataforma2.Id
             };
 
-            SetResponse response1 = await client.SetTaskAsync("Counter/countPlataformas", obj);
+            SetResponse response1 = await client.SetAsync("Counter/countPlataformas", obj);
         }
             catch (MySqlException ex)
             {
@@ -64,7 +64,7 @@ namespace LojadeJogo.DAO.Plataformas
             try
             {
                 this.client = connection.getClient();
-                FirebaseResponse response = await client.DeleteTaskAsync("Information/Plataformas/" + id);
+                FirebaseResponse response = await client.DeleteAsync("Information/Plataformas/" + id);
             }
             catch (Exception ex)
             {
@@ -72,14 +72,14 @@ namespace LojadeJogo.DAO.Plataformas
             }
             finally
             {
-                FirebaseResponse resp = await client.GetTaskAsync("Counter/countPlataformas");
+                FirebaseResponse resp = await client.GetAsync("Counter/countPlataformas");
 
                 Counter_class get = resp.ResultAs<Counter_class>();
                 var obj = new Counter_class
                 {
                     cnt = (Convert.ToInt32(get.cnt) - 1).ToString()
                 };
-                SetResponse response1 = await client.SetTaskAsync("Counter/countPlataformas", obj);
+                SetResponse response1 = await client.SetAsync("Counter/countPlataformas", obj);
 
             }
 
@@ -87,7 +87,7 @@ namespace LojadeJogo.DAO.Plataformas
 
         public async void Editar(Plataforma plataforma)
         {
-            FirebaseResponse resp = await client.GetTaskAsync("Information/Plataformas/" + plataforma.Id);
+            FirebaseResponse resp = await client.GetAsync("Information/Plataformas/" + plataforma.Id);
 
             Plataforma get = resp.ResultAs<Plataforma>();
             var obj = new Plataforma
@@ -95,14 +95,14 @@ namespace LojadeJogo.DAO.Plataformas
                 Id = plataforma.Id,
                 Nome = plataforma.Nome
             };
-            SetResponse response1 = await client.SetTaskAsync("Information/Plataformas/" + plataforma.Id, obj);
+            SetResponse response1 = await client.SetAsync("Information/Plataformas/" + plataforma.Id, obj);
 
         }
 
         public async void buscarPorId(string id, TextBox txtid, TextBox txtnome)
         {
             this.client = connection.getClient();
-            FirebaseResponse response = await client.GetTaskAsync("Information/Plataformas/" + id);
+            FirebaseResponse response = await client.GetAsync("Information/Plataformas/" + id);
 
             Plataforma obj = response.ResultAs<Plataforma>();
 
@@ -131,7 +131,7 @@ namespace LojadeJogo.DAO.Plataformas
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countPlataformas");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countPlataformas");
 
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -149,7 +149,7 @@ namespace LojadeJogo.DAO.Plataformas
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Plataformas/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Plataformas/" + i);
                     Plataforma obj2 = resp2.ResultAs<Plataforma>();
 
                     DataRow row = dt.NewRow();
@@ -192,7 +192,7 @@ namespace LojadeJogo.DAO.Plataformas
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countPlataformas");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countPlataformas");
 
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -210,7 +210,7 @@ namespace LojadeJogo.DAO.Plataformas
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Plataformas/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Plataformas/" + i);
                     Plataforma obj2 = resp2.ResultAs<Plataforma>();
 
                     DataRow row = dt.NewRow();

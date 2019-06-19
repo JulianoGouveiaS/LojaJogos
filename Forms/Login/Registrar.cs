@@ -45,7 +45,7 @@ namespace LojadeJogo.Forms.Login
             try { 
             this.client = connection.getClient();
 
-            FirebaseResponse resp = await client.GetTaskAsync("Counter/countUsuarios");
+            FirebaseResponse resp = await client.GetAsync("Counter/countUsuarios");
 
             Counter_class get = resp.ResultAs<Counter_class>();
 
@@ -58,7 +58,7 @@ namespace LojadeJogo.Forms.Login
 
             };
 
-            SetResponse response = await client.SetTaskAsync("Information/Usuarios/" + user2.Id, user2);
+            SetResponse response = await client.SetAsync("Information/Usuarios/" + user2.Id, user2);
 
                 Usuario result = response.ResultAs<Usuario>();
 
@@ -70,7 +70,7 @@ namespace LojadeJogo.Forms.Login
                 cnt = user2.Id
             };
 
-            SetResponse response1 = await client.SetTaskAsync("Counter/countUsuarios", obj);
+            SetResponse response1 = await client.SetAsync("Counter/countUsuarios", obj);
          }
             catch (MySqlException ex)
             {

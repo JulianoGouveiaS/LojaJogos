@@ -36,7 +36,7 @@ namespace LojadeJogo.Forms.Login
 
             this.client = connection.getClient();
 
-            FirebaseResponse response = await client.GetTaskAsync("Information/Usuarios/" + cbUsers.SelectedValue.ToString());
+            FirebaseResponse response = await client.GetAsync("Information/Usuarios/" + cbUsers.SelectedValue.ToString());
 
             Usuario obj = response.ResultAs<Usuario>();
            
@@ -82,7 +82,7 @@ namespace LojadeJogo.Forms.Login
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countUsuarios");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countUsuarios");
 
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -100,7 +100,7 @@ namespace LojadeJogo.Forms.Login
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Usuarios/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Usuarios/" + i);
                     Usuario obj2 = resp2.ResultAs<Usuario>();
 
                     DataRow row = dt.NewRow();

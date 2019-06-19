@@ -50,7 +50,7 @@ namespace LojadeJogo
 
                 this.client = connection.getClient();
 
-                FirebaseResponse resp = await client.GetTaskAsync("Counter/countFuncionarios");
+                FirebaseResponse resp = await client.GetAsync("Counter/countFuncionarios");
 
                 Counter_class get = resp.ResultAs<Counter_class>();
 
@@ -61,7 +61,7 @@ namespace LojadeJogo
                     Salario = funcionario.Salario
                 };
 
-                SetResponse response = await client.SetTaskAsync("Information/Funcionarios/" + Funcionario2.Id, Funcionario2);
+                SetResponse response = await client.SetAsync("Information/Funcionarios/" + Funcionario2.Id, Funcionario2);
 
                 Cliente result = response.ResultAs<Cliente>();
 
@@ -73,7 +73,7 @@ namespace LojadeJogo
                     cnt = Funcionario2.Id
                 };
 
-                SetResponse response1 = await client.SetTaskAsync("Counter/countFuncionarios", obj);
+                SetResponse response1 = await client.SetAsync("Counter/countFuncionarios", obj);
             }
             catch (MySqlException ex)
             {
@@ -98,7 +98,7 @@ namespace LojadeJogo
             try
             {
                 this.client = connection.getClient();
-                FirebaseResponse response = await client.DeleteTaskAsync("Information/Funcionarios/" + id);
+                FirebaseResponse response = await client.DeleteAsync("Information/Funcionarios/" + id);
             }
             catch (Exception ex)
             {
@@ -106,14 +106,14 @@ namespace LojadeJogo
             }
             finally
             {
-                FirebaseResponse resp = await client.GetTaskAsync("Counter/countFuncionarios");
+                FirebaseResponse resp = await client.GetAsync("Counter/countFuncionarios");
 
                 Counter_class get = resp.ResultAs<Counter_class>();
                 var obj = new Counter_class
                 {
                     cnt = (Convert.ToInt32(get.cnt) - 1).ToString()
                 };
-                SetResponse response1 = await client.SetTaskAsync("Counter/countFuncionarios", obj);
+                SetResponse response1 = await client.SetAsync("Counter/countFuncionarios", obj);
 
             }
         }
@@ -129,7 +129,7 @@ namespace LojadeJogo
               cmd.Parameters.Add("?salario", MySqlDbType.Double).Value = funcionarios.Salario;
               cmd.ExecuteNonQuery();
               */
-            FirebaseResponse resp = await client.GetTaskAsync("Information/Funcionarios/" + funcionario.Id);
+            FirebaseResponse resp = await client.GetAsync("Information/Funcionarios/" + funcionario.Id);
 
             Funcionario get = resp.ResultAs<Funcionario>();
             var obj = new Funcionario
@@ -138,7 +138,7 @@ namespace LojadeJogo
                 Nome = funcionario.Nome,
                 Salario = funcionario.Salario
             };
-            SetResponse response1 = await client.SetTaskAsync("Information/Funcionarios/" + funcionario.Id, obj);
+            SetResponse response1 = await client.SetAsync("Information/Funcionarios/" + funcionario.Id, obj);
         }
         /*
             public DataTable lista()
@@ -157,7 +157,7 @@ namespace LojadeJogo
         public async void BuscarPorId(string id, TextBox txtid, TextBox txtnome, TextBox txtsal)
         {
             this.client = connection.getClient();
-            FirebaseResponse response = await client.GetTaskAsync("Information/Funcionarios/" + id);
+            FirebaseResponse response = await client.GetAsync("Information/Funcionarios/" + id);
 
             Funcionario obj = response.ResultAs<Funcionario>();
 
@@ -188,7 +188,7 @@ namespace LojadeJogo
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countFuncionarios");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countFuncionarios");
 
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -206,7 +206,7 @@ namespace LojadeJogo
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Funcionarios/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Funcionarios/" + i);
                     Funcionario obj2 = resp2.ResultAs<Funcionario>();
 
                     DataRow row = dt.NewRow();
@@ -251,7 +251,7 @@ namespace LojadeJogo
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countFuncionarios");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countFuncionarios");
 
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -269,7 +269,7 @@ namespace LojadeJogo
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Funcionarios/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Funcionarios/" + i);
                     Funcionario obj2 = resp2.ResultAs<Funcionario>();
 
                     DataRow row = dt.NewRow();

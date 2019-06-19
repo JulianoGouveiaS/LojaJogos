@@ -53,7 +53,7 @@ namespace LojadeJogo.Forms.Firebase
         private async void btn_insert_Click(object sender, EventArgs e)
         {
             //cria instancia para o repositorio
-            FirebaseResponse resp = await client.GetTaskAsync("Counter/node");
+            FirebaseResponse resp = await client.GetAsync("Counter/node");
 
             //pega os dados de acordo com o tipo de classe que queremos
             //no caso pegamos a variavel count dos ids
@@ -75,7 +75,7 @@ namespace LojadeJogo.Forms.Firebase
 
             //seta a classe que populamos em determinado repositorio
             //no caso setamos a var data em Information/{id dela}
-            SetResponse response = await client.SetTaskAsync("Information/"+data.Id, data);
+            SetResponse response = await client.SetAsync("Information/"+data.Id, data);
 
             //pega o resultado
             Data result = response.ResultAs<Data>();
@@ -89,7 +89,7 @@ namespace LojadeJogo.Forms.Firebase
             };
 
             //atualiza a contagem 
-            SetResponse response1 = await client.SetTaskAsync("Counter/node", obj);
+            SetResponse response1 = await client.SetAsync("Counter/node", obj);
     
         }
 
@@ -98,7 +98,7 @@ namespace LojadeJogo.Forms.Firebase
             //retornar
 
             //cria instancia para o repositorio com o id desejado
-            FirebaseResponse response = await client.GetTaskAsync("Information/"+txt_id.Text);
+            FirebaseResponse response = await client.GetAsync("Information/"+txt_id.Text);
 
             //pega o objeto 
             Data obj = response.ResultAs<Data>();
@@ -125,7 +125,7 @@ namespace LojadeJogo.Forms.Firebase
 
             //pega a instancia do repositorio de acordo com o id que queremos atualizar e colocamos a variavel que queremos
             //colocar no lugar dela
-            FirebaseResponse response = await client.UpdateTaskAsync("Information/"+txt_id.Text, data);
+            FirebaseResponse response = await client.UpdateAsync("Information/"+txt_id.Text, data);
 
             //pega o resultado do update
             Data result = response.ResultAs<Data>();
@@ -138,7 +138,7 @@ namespace LojadeJogo.Forms.Firebase
             //deletar
 
             //da um delete no repositorio de acordo com id
-            FirebaseResponse response = await client.DeleteTaskAsync("Information/" + txt_id.Text);
+            FirebaseResponse response = await client.DeleteAsync("Information/" + txt_id.Text);
 
         }
 
@@ -148,7 +148,7 @@ namespace LojadeJogo.Forms.Firebase
 
 
             //da um delete no repositorio 
-            FirebaseResponse response = await client.DeleteTaskAsync("Information");
+            FirebaseResponse response = await client.DeleteAsync("Information");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace LojadeJogo.Forms.Firebase
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/node");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/node");
             
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -182,7 +182,7 @@ namespace LojadeJogo.Forms.Firebase
                 try
                 {
                   
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/"+i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/"+i);
                     Data obj2 = resp2.ResultAs<Data>();
 
                     DataRow row = dt.NewRow();

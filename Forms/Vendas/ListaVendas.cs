@@ -52,7 +52,7 @@ namespace LojadeJogo.Forms.Vendas
 
             dt.Rows.Clear();
 
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countVendas");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countVendas");
 
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
 
@@ -63,7 +63,7 @@ namespace LojadeJogo.Forms.Vendas
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Vendas/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Vendas/" + i);
                     Domain.Venda obj2 = resp2.ResultAs<Domain.Venda>();
 
                     DataRow row = dt.NewRow();
@@ -71,17 +71,17 @@ namespace LojadeJogo.Forms.Vendas
                     row["valor"] = obj2.Valor.ToString();
                     row["descricao"] = obj2.Descricao.ToString();
 
-                    FirebaseResponse response = await client.GetTaskAsync("Information/Jogos/" + obj2.IdJogo.ToString());
+                    FirebaseResponse response = await client.GetAsync("Information/Jogos/" + obj2.IdJogo.ToString());
                     Domain.Jogo jogoEncontrado = response.ResultAs<Domain.Jogo>();
 
                     row["jogo"] = jogoEncontrado.Nome;
 
-                    FirebaseResponse response2 = await client.GetTaskAsync("Information/Clientes/" + obj2.IdCliente.ToString());
+                    FirebaseResponse response2 = await client.GetAsync("Information/Clientes/" + obj2.IdCliente.ToString());
                     Domain.Cliente clienteEncontrado = response.ResultAs<Domain.Cliente>();
 
                     row["cliente"] = clienteEncontrado.Nome;
 
-                    FirebaseResponse response3 = await client.GetTaskAsync("Information/Funcionarios/" + obj2.IdFuncionario.ToString());
+                    FirebaseResponse response3 = await client.GetAsync("Information/Funcionarios/" + obj2.IdFuncionario.ToString());
                     Funcionario funcEncontrado = response.ResultAs<Funcionario>();
 
                     row["funcionario"] = funcEncontrado.Nome;

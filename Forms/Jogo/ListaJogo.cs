@@ -68,7 +68,7 @@ namespace LojadeJogo.Forms.Jogo
 
             dt.Rows.Clear();
 
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countJogos");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countJogos");
 
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
 
@@ -79,7 +79,7 @@ namespace LojadeJogo.Forms.Jogo
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Jogos/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Jogos/" + i);
                     Domain.Jogo obj2 = resp2.ResultAs<Domain.Jogo>();
 
                     DataRow row = dt.NewRow();
@@ -87,7 +87,7 @@ namespace LojadeJogo.Forms.Jogo
                     row["id"] = obj2.Id.ToString();
                     row["nome"] = obj2.Nome.ToString();
                     
-                    FirebaseResponse response = await client.GetTaskAsync("Information/Plataformas/" + obj2.IdPlataforma.ToString());
+                    FirebaseResponse response = await client.GetAsync("Information/Plataformas/" + obj2.IdPlataforma.ToString());
 
                     Plataforma plataformaEncontrada = response.ResultAs<Plataforma>();
 

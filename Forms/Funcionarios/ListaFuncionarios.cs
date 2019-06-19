@@ -52,7 +52,7 @@ namespace LojadeJogo
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countFuncionarios");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countFuncionarios");
 
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -71,7 +71,7 @@ namespace LojadeJogo
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Funcionarios/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Funcionarios/" + i);
                     Funcionario obj2 = resp2.ResultAs<Funcionario>();
 
                     DataRow row = dt.NewRow();

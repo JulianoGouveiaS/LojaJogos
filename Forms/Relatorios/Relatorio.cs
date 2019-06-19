@@ -1,10 +1,8 @@
 ﻿using FireSharp.Interfaces;
 using FireSharp.Response;
-using LojadeJogo.DAO.Plataformas;
 using LojadeJogo.Domain;
 using LojadeJogo.Forms.Firebase;
 using LojadeJogo.Utils;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,59 +13,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LojadeJogo.Forms.Plataformas
+namespace LojadeJogo.Forms.Relatorios
 {
-    public partial class ListaPlataformas : Form
+    public partial class Relatorio : Form
     {
         ConnectionFactory connection = new ConnectionFactory();
         IFirebaseClient client;
         Utilitarios utils = new Utilitarios();
         DataSet conexaoDataset = new DataSet();
 
-        public ListaPlataformas()
+        DataTable dt = new DataTable();
+
+        public Relatorio()
         {
             InitializeComponent();
-            string[] colunas = { "id", "nome" };
-            this.lista(dataGridView1, colunas);
         }
 
-      
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Relatorio_Load(object sender, EventArgs e)
         {
-
+            
+            this.reportViewer1.RefreshReport();
         }
-
-
-        public async void lista(DataGridView dataGrid, string[] colunas)
+        public async void lista()
         {
             this.client = connection.getClient();
             DataTable dt = new DataTable();
             int i = 0;
-            for (i = 0; i < colunas.Count(); i++)
-            {
-                dt.Columns.Add(colunas[i]);
-            }
-
-            dataGrid.DataSource = dt;
-
-            //parametro pro while
+             dt.Columns.Add("id");
+             dt.Columns.Add("nome");
+            
+            PlataformaBindingSource.DataSource = dt;
             i = 0;
-
-            //limpa a tabela pro refresh, pra nao ficar acumulando
+            
             dt.Rows.Clear();
-
-            //pega a referencia pro contador
+            
             FirebaseResponse resp1 = await client.GetAsync("Counter/countPlataformas");
-
-            //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
+            
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
-
-            //criei a var cnt e coloquei o valor de contagem que busquei do firebase
+            
             int cnt = Convert.ToInt32(obj1.cnt);
 
             while (true)
             {
-                //while ate rodar todos os objetos, pois cnt vai estar representando quantos cadastros ja existem
                 if (i == cnt)
                 {
                     break;
@@ -80,7 +67,7 @@ namespace LojadeJogo.Forms.Plataformas
                     Plataforma obj2 = resp2.ResultAs<Plataforma>();
 
                     DataRow row = dt.NewRow();
-
+                    MessageBox.Show(obj2.Id + " " + obj2.Nome);
                     row["id"] = obj2.Id;
                     row["nome"] = obj2.Nome;
 
@@ -93,7 +80,23 @@ namespace LojadeJogo.Forms.Plataformas
                 }
 
             }
-            
+            PlataformaBindingSource.ResetBindings(false);
+            reportViewer1.RefreshReport();
+
+        }
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            this.lista();
+        }
+
+        private void reportViewer2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

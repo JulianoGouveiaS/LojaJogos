@@ -33,9 +33,15 @@ namespace LojadeJogo.DAO.Vendas
             {
                 this.client = connection.getClient();
 
-                FirebaseResponse resp = await client.GetTaskAsync("Counter/countVendas");
+                FirebaseResponse resp = await client.GetAsync("Counter/countVendas");
+
+                FirebaseResponse respBackup = await client.GetAsync("Counter/countBackup");
 
                 Counter_class get = resp.ResultAs<Counter_class>();
+
+                Counter_class get2 = respBackup.ResultAs<Counter_class>();
+
+
 
                 var venda2 = new Venda
                 {
@@ -47,7 +53,8 @@ namespace LojadeJogo.DAO.Vendas
                     Valor = venda.Valor,
                 };
 
-                SetResponse response = await client.SetTaskAsync("Information/Vendas/" + venda2.Id, venda2);
+                SetResponse response = await client.SetAsync("Information/Vendas/" + venda2.Id, venda2);
+                SetResponse response2 = await client.SetAsync("Information/Backup/" + (Convert.ToInt32(get2.cnt) + 1).ToString(), venda2);
 
                 Venda result = response.ResultAs<Venda>();
 
@@ -59,7 +66,7 @@ namespace LojadeJogo.DAO.Vendas
                     cnt = venda2.Id
                 };
 
-                SetResponse response1 = await client.SetTaskAsync("Counter/countVendas", obj);
+                SetResponse response1 = await client.SetAsync("Counter/countVendas", obj);
             }
             catch (MySqlException ex)
             {
@@ -72,7 +79,7 @@ namespace LojadeJogo.DAO.Vendas
             try
             {
                 this.client = connection.getClient();
-                FirebaseResponse response = await client.DeleteTaskAsync("Information/Vendas/" + id);
+                FirebaseResponse response = await client.DeleteAsync("Information/Vendas/" + id);
             }
             catch (Exception ex)
             {
@@ -80,14 +87,14 @@ namespace LojadeJogo.DAO.Vendas
             }
             finally
             {
-                FirebaseResponse resp = await client.GetTaskAsync("Counter/countVendas");
+                FirebaseResponse resp = await client.GetAsync("Counter/countVendas");
 
                 Counter_class get = resp.ResultAs<Counter_class>();
                 var obj = new Counter_class
                 {
                     cnt = (Convert.ToInt32(get.cnt) - 1).ToString()
                 };
-                SetResponse response1 = await client.SetTaskAsync("Counter/countVendas", obj);
+                SetResponse response1 = await client.SetAsync("Counter/countVendas", obj);
 
             }
 
@@ -96,7 +103,7 @@ namespace LojadeJogo.DAO.Vendas
 
         public async void Editar(Venda venda)
         {
-            FirebaseResponse resp = await client.GetTaskAsync("Information/Vendas/" + venda.Id);
+            FirebaseResponse resp = await client.GetAsync("Information/Vendas/" + venda.Id);
 
             Venda get = resp.ResultAs<Venda>();
             var obj = new Venda
@@ -109,7 +116,7 @@ namespace LojadeJogo.DAO.Vendas
                 IdCliente = venda.IdCliente
             
             };
-            SetResponse response1 = await client.SetTaskAsync("Information/Vendas/" + venda.Id, obj);
+            SetResponse response1 = await client.SetAsync("Information/Vendas/" + venda.Id, obj);
             MessageBox.Show("Sucesso");
 
         }
@@ -117,7 +124,7 @@ namespace LojadeJogo.DAO.Vendas
         public async void BuscarPorId(string id, TextBox txtDesc, TextBox txtId, TextBox txtValor, ComboBox cbJogo, ComboBox cbFunc, ComboBox cbCli)
         {
             this.client = connection.getClient();
-            FirebaseResponse response = await client.GetTaskAsync("Information/Vendas/" + id);
+            FirebaseResponse response = await client.GetAsync("Information/Vendas/" + id);
 
             Venda obj = response.ResultAs<Venda>();
             daoClientes.preencheComboById(cbCli, obj.IdCliente);
@@ -156,7 +163,7 @@ namespace LojadeJogo.DAO.Vendas
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countVendas");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countVendas");
 
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -174,7 +181,7 @@ namespace LojadeJogo.DAO.Vendas
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Vendas/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Vendas/" + i);
                     Domain.Venda obj2 = resp2.ResultAs<Domain.Venda>();
 
                     DataRow row = dt.NewRow();
@@ -222,7 +229,7 @@ namespace LojadeJogo.DAO.Vendas
             dt.Rows.Clear();
 
             //pega a referencia pro contador
-            FirebaseResponse resp1 = await client.GetTaskAsync("Counter/countVendas");
+            FirebaseResponse resp1 = await client.GetAsync("Counter/countVendas");
 
             //coloca o conteudo da referencia na variavel do tipo Counter_class que eu criei
             Counter_class obj1 = resp1.ResultAs<Counter_class>();
@@ -240,7 +247,7 @@ namespace LojadeJogo.DAO.Vendas
                 try
                 {
 
-                    FirebaseResponse resp2 = await client.GetTaskAsync("Information/Vendas/" + i);
+                    FirebaseResponse resp2 = await client.GetAsync("Information/Vendas/" + i);
                     Venda obj2 = resp2.ResultAs<Venda>();
 
                     DataRow row = dt.NewRow();
