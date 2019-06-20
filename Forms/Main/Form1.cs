@@ -31,6 +31,7 @@ namespace LojadeJogo
         IFirebaseClient client;
         Utilitarios utils = new Utilitarios();
         DataSet conexaoDataset = new DataSet();
+
         public FormPrincipal(string isAdm)
         {
             this.adm = isAdm;

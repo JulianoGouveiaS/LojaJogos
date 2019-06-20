@@ -69,15 +69,30 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+
+            if (this.adm == "0"){
+
+                this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cientesToolStripMenuItem,
+            this.vendasToolStripMenuItem});
+                this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+                this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+                this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            }
+            else
+            {
+                this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plataformasToolStripMenuItem,
             this.funcionariosToolStripMenuItem,
             this.jogosToolStripMenuItem,
             this.cientesToolStripMenuItem,
             this.vendasToolStripMenuItem});
-            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.cadastrosToolStripMenuItem.Text = "Cadastros";
+                this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+                this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+                this.cadastrosToolStripMenuItem.Text = "Cadastros";
+
+            }
+
             // 
             // plataformasToolStripMenuItem
             // 
@@ -104,7 +119,7 @@
             // 
             this.cientesToolStripMenuItem.Name = "cientesToolStripMenuItem";
             this.cientesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.cientesToolStripMenuItem.Text = "Cientes";
+            this.cientesToolStripMenuItem.Text = "Clientes";
             this.cientesToolStripMenuItem.Click += new System.EventHandler(this.cientesToolStripMenuItem_Click);
             // 
             // vendasToolStripMenuItem
@@ -116,15 +131,20 @@
             // 
             // remoçõesToolStripMenuItem
             // 
-            this.remoçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+
+            if (this.adm != "0")
+            {
+
+                this.remoçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plataformasToolStripMenuItem1,
             this.funcionariosToolStripMenuItem1,
             this.jogosToolStripMenuItem1,
             this.clientesToolStripMenuItem,
             this.vendasToolStripMenuItem1});
-            this.remoçõesToolStripMenuItem.Name = "remoçõesToolStripMenuItem";
-            this.remoçõesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.remoçõesToolStripMenuItem.Text = "Remoções";
+                this.remoçõesToolStripMenuItem.Name = "remoçõesToolStripMenuItem";
+                this.remoçõesToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+                this.remoçõesToolStripMenuItem.Text = "Remoções";
+            }
             // 
             // plataformasToolStripMenuItem1
             // 

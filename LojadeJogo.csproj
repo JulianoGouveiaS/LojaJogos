@@ -132,6 +132,7 @@
   <ItemGroup>
     <Compile Include="DAO\Clientes\DAOClientes.cs" />
     <Compile Include="DAO\Jogos\DAOJogos.cs" />
+    <Compile Include="DAO\Navio\DAONavio.cs" />
     <Compile Include="DAO\Vendas\DAOVendas.cs" />
     <Compile Include="Domain\Cliente.cs" />
     <Compile Include="Domain\Jogo.cs" />
